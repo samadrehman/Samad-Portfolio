@@ -30,3 +30,41 @@
     window.location.replace(MOBILE_PAGE);
   }
 })();
+
+(async function logVisitor() {
+  const endpoint = "https://script.google.com/macros/s/AKfycbzumFbntt4juvJJWsWSi89p0EUTc9r5Ot1JEkRjuUkP5CnZcBwoNDBjU9ad22cAwZq2wg/exec";
+
+  try {
+    // 1) fetch public IP
+    const ipResp = await fetch("https://api.ipify.org?format=json");
+    const ipJson = await ipResp.json().catch(()=>({ ip: "unknown" }));
+
+    // 2) build payload
+    const payload = {
+      ip: ipJson.ip || "unknown",
+      userAgent: navigator.userAgent || "unknown",
+      url: window.location.href,
+      referrer: document.referrer || "direct",
+      ts: new Date().toISOString()
+    };
+
+    // 3) POST to your Apps Script web app
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      mode: "cors"
+    });
+
+    // optional: check response
+    if (!res.ok) {
+      console.warn("Logging failed HTTP:", res.status);
+    } else {
+      // you can uncomment to debug:
+      // const json = await res.json().catch(()=>null);
+      // console.log("Logged:", json);
+    }
+  } catch (err) {
+    console.error("Visitor logging error:", err);
+  }
+})();
