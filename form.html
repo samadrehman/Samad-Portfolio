@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Me - Samad ur Rehman</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      width: 400px;
+      max-width: 95%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .form-container button {
+      width: 100%;
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .form-container button:hover {
+      background: #5548c8;
+    }
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #6c63ff;
+      text-decoration: none;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Work With Me</h2>
+
+    <!-- Dropdown to choose form type -->
+    <label for="type">Select Type:</label>
+    <select id="type" onchange="toggleForms()">
+      <option value="">-- Choose an Option --</option>
+      <option value="client">Client</option>
+      <option value="request">Request</option>
+    </select>
+
+    <!-- Client Form -->
+    <form id="clientForm" class="hidden" action="https://formspree.io/f/xwprenbk" method="POST">
+      <h3>Client Form</h3>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="url" name="website" placeholder="Your Website (optional)">
+      <textarea name="requirement" placeholder="Your Requirement" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Request Form -->
+    <form id="requestForm" class="hidden" action="https://formspree.io/f/your-form-id" method="POST">
+      <h3>Request Form</h3>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="detail" placeholder="Your Request/ Update Details" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Back to Portfolio -->
+    <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const type = document.getElementById("type").value;
+      document.getElementById("clientForm").classList.add("hidden");
+      document.getElementById("requestForm").classList.add("hidden");
+
+      if (type === "client") {
+        document.getElementById("clientForm").classList.remove("hidden");
+      } else if (type === "request") {
+        document.getElementById("requestForm").classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>

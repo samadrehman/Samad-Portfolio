@@ -258,3 +258,35 @@ body {
 .hire-btn:hover {
   background: #8e2d2d;
 }
+.top-controls {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.dark-toggle {
+  background: #ffcc00;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-btn {
+  background: #6c63ff;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.form-btn:hover {
+  background: #5548c8;
+}
