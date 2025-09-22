@@ -32,7 +32,7 @@
 })();
 
 (async function logVisitor() {
-  const endpoint = "https://script.google.com/macros/s/AKfycbzumFbntt4juvJJWsWSi89p0EUTc9r5Ot1JEkRjuUkP5CnZcBwoNDBjU9ad22cAwZq2wg/exec";
+  const endpoint = "https://script.google.com/macros/s/AKfycbw6cPVK2JSKIXXYbkLj0X9CxFkYj_sqmj7RlsXD-SczXJIA-Kx1WA_hVmfk9wNsu16bJw/exec";
 
   try {
     // 1) fetch public IP
