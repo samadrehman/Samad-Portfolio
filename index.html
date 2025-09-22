@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samad ur Rehman - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  if (window.innerWidth < 768) {
+    window.location.href = "mobile.html"; // redirect mobile users
+  }
+</script>
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+  <!-- Left Side - Introduction -->
+  <div class="intro">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm <strong>Samad ur Rehman</strong>, a 19-year-old BCA student from Bhopal.  
+      I'm passionate about <b>software development, machine learning, cybersecurity,</b>  
+      and <b>web development</b>. I actively share my projects on GitHub.
+    </p>
+    <div id="mobile-warning">
+  <p>⚠️ This website is only available on Desktop/Laptop.  
+     Please open it on a larger screen.</p>
+</div>
+
+
+    <!-- Profile Picture -->
+    <img src="me.jpg" alt="Samad ur Rehman" class="profile-pic">
+
+    <div class="hire-me">
+  <h2>💼 Looking to Hire?</h2>
+  <p>I am open for internships, freelance, or full-time roles.</p>
+  <a href="mailto:samadrehman550@gmail.com" class="hire-btn">📩 Hire Me</a>
+</div>
+
+
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h3>Contact Me</h3>
+      <p>📧 samadrehman550@gmail.com</p>
+    </div>
+    <!-- Blog Section -->
+<div class="blog">
+  <h2>My Blog</h2>
+  <div class="blog-post">
+    <h3>🚀 Getting Started with Machine Learning</h3>
+    <p>In this post, I share my journey into ML, key concepts, and resources that helped me...</p>
+    <button class="read-more" onclick="openBlog('mlBlog')">Read More</button>
+  </div>
+
+  <div class="blog-post">
+    <h3>🔒 Basics of Cybersecurity</h3>
+    <p>Understanding firewalls, encryption, and how to protect yourself online is essential today...</p>
+    <button class="read-more" onclick="openBlog('cybersecurityBlog')">Read More</button>
+  </div>
+</div>
+</div>
+
+
+  <!-- Right Side - Projects -->
+  <div class="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>API RATE LIMITER</h3>
+      <p>Python + Some tool to capture and analyse live traffic, detect anomalies, and visualize results.
+        •	Implemented rate limiting to prevent DDoS attacks.
+        •	Developed real-time traffic monitoring and alerting system.
+
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Customer segmentation model </h3>
+      <p>Implemented using Python and Scikit-learn. Achieved 87% accuracy in identifying customer groups
+       •	Developed Flask + HTML dashboard for visualization.
+       •  AI can learn by themselves when customers give their files.
+      </p>
+
+    </div>
+
+    <div class="project">
+      <h3>SkyStrike Arena (3D Shooting Game)</h3>
+      <p>Built with Three.js. AI-driven logic, smooth rendering, real-time combat performance latency optimization from 15ms to 5ms.
+        •	Implemented AI for enemy behavior and difficulty scaling.
+        •	Optimized rendering for smooth performance.
+        •	Integrated real-time combat mechanics.
+      </p>
+    </div>
+  </div>
+
+  <!-- Certificates Section -->
+  <div class="certificates">
+    <h2>Certificates & Achievements</h2>
+    <ul>
+      <li>IIT Delhi Certificate – Machine Learning in Finance</li>
+      <li>Open-Source Contributor – GitHub Projects</li>
+      <li>Python Programming Modules 1 & 2 – Technology Developers</li>
+      <li>Foundations of Cybersecurity – Udemy</li>
+      <img src="delhi.png" alt="IIT Delhi Certificate" class="Certificates-pic">
+
+    </ul>
+  </div>
+
+  <!-- Bottom Center - GitHub Button -->
+  <div class="github-btn">
+    <a href="https://github.com/samadrehman" target="_blank">Visit My GitHub</a>
+    <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">Visit My LeetCode</a>
+    <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Visit My Instagram</a>
+  </div>
+
+  <!-- Dark Mode Script -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+  <!-- Blog Modals -->
+  <div id="mlBlog" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBlog('mlBlog')">&times;</span>
+      <h2>🚀 Getting Started with Machine Learning</h2>
+      <p>
+        Machine Learning (ML) is a fascinating field that combines statistics, computer science, and domain expertise to create systems that can learn from data. My journey into ML began with understanding the basics of algorithms like linear regression, decision trees, and clustering. I found resources like Coursera's Machine Learning course by Andrew Ng and books like "Hands-On Machine Learning with Scikit-Learn and TensorFlow" incredibly helpful.
+      </p>
+      <p>
+        Key concepts I focused on included supervised vs unsupervised learning, overfitting vs underfitting, and model evaluation metrics. Practical experience was crucial, so I worked on projects like predicting house prices and classifying images using libraries such as Scikit-learn and TensorFlow. 
+      </p>
+      <p>
+        For anyone starting out, I recommend:
+        <ul>
+          <li>Learning Python programming</li>
+          <li>Understanding basic statistics and linear algebra</li>
+          <li>Working on small projects to apply concepts</li>
+        </ul>
+        The field is vast and constantly evolving, but with dedication and curiosity, anyone can make significant strides in machine learning.
+      </p>
+    </div>
+  </div>
+  <div id="cybersecurityBlog" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBlog('cybersecurityBlog')">&times;</span>
+      <h2>🔒 Basics of Cybersecurity</h2>
+      <p>
+        In today's digital age, cybersecurity is more important than ever. It involves protecting systems, networks, and data from cyber attacks. My interest in cybersecurity started with understanding common threats like malware, phishing, and ransomware. I took courses on platforms like Udemy and read books such as "The Web Application Hacker's Handbook" to deepen my knowledge.
+      </p>
+      <p>
+        Key concepts I learned include:
+        <ul>
+          <li>Firewalls and Intrusion Detection Systems (IDS)</li>
+          <li>Encryption techniques for data protection</li>
+          <li>Network security protocols</li>
+          <li>Ethical hacking and penetration testing</li>
+        </ul>
+        Practical experience was gained through labs and simulations where I practiced identifying vulnerabilities and securing systems. Tools like Wireshark, Metasploit, and Nmap became essential in my toolkit.
+      </p>
+      <p>
+        For those interested in cybersecurity, I recommend:
+        <ul>
+          <li>Building a strong foundation in networking and operating systems</li>
+          <li>Learning about different types of cyber threats</li>
+          <li>Practicing ethical hacking in controlled environments</li>
+          <li>Staying updated with the latest security trends and news</li>
+        </ul>
+        Cybersecurity is a dynamic field that requires continuous learning, but it offers exciting opportunities to make a real impact in protecting digital assets.
+      </p>
+    </div>
+  </div>
+  <script>
+function openBlog(id) {
+  document.getElementById(id).style.display = "flex";
+}
+
+function closeBlog(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+// Optional: Close on ESC key
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.style.display = "none";
+    });
+  }
+});
+</script>
+
+  <!-- Rain Canvas -->
+<canvas id="rain"></canvas>
+
+<script>
+  const canvas = document.getElementById("rain");
+  const ctx = canvas.getContext("2d");
+  let rainDrops = [];
+  let raining = false;
+  let flashOpacity = 0;
+
+  // Resize canvas
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Raindrop object
+  class RainDrop {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * -canvas.height;
+      this.length = Math.random() * 25 + 15;
+      this.speed = Math.random() * 5 + 5;
+      this.thickness = Math.random() * 2 * 1; // raindrop width
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(174,194,224,0.8)";
+      ctx.lineWidth = this.thickness;
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.x, this.y + this.length);
+      ctx.stroke();
+    }
+    update() {
+      this.y += this.speed;
+      if (this.y > canvas.height) {
+        this.reset();
+        this.y = Math.random() * -20;
+      }
+      this.draw();
+    }
+  }
+
+  // Generate raindrops
+  for (let i = 0; i < 590; i++) {
+    rainDrops.push(new RainDrop());
+  }
+
+  function animateRain() {
+    if (!raining) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    rainDrops.forEach(drop => drop.update());
+
+    // Lightning flash effect
+    if (flashOpacity > 0) {
+      ctx.fillStyle = `rgba(255,255,255,${flashOpacity})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      flashOpacity -= 0.3; // fade out
+    }
+
+    requestAnimationFrame(animateRain);
+  }
+
+  // Random lightning trigger
+  function randomLightning() {
+    if (raining) {
+      if (Math.random() < 0.10) { // 10% chance
+        flashOpacity = 0.10; // bright flash
+      }
+    }
+    setTimeout(randomLightning, 200);
+  }
+  randomLightning();
+
+  // Keyboard shortcut: Ctrl + M
+  document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key === "m") {
+      raining = !raining;
+      if (raining) {
+        canvas.style.display = "block";
+        animateRain();
+      } else {
+        canvas.style.display = "none";
+      }
+    }
+  });
+
+
+  // Initially hidden
+  canvas.style.display = "none";
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.pointerEvents = "none"; // click-through
+
+  
+</script>
+</body>
+</html>

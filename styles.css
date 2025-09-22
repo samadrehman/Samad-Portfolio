@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  background: #d7e76b;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #3383ad;
+  color: #cb9d9d;
+}
+
+.dark-mode .intro,
+.dark-mode .project,
+.dark-mode .certificates {
+  background: #1e1e1e;
+  border-color: #b83e3e;
+}
+
+.dark-toggle {
+  position: fixed;
+  top: 5px;
+  right: 5%;
+  padding: 8px 12px;
+  border: right;
+  border: 2px solid #b83e3e;
+  border-left: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #b83e3e;
+  color: #fff;
+  font-size: 18px;
+}
+.dark-toggle:hover {
+  background: #458ad8;
+}
+
+/* Left Side (Intro) */
+.intro {
+  width: 30%;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #cacacb;
+  border-right: 3px solid #c9c9c900;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: 20px auto;
+  border: 3px solid #b83e3e;
+  object-fit: cover;
+}
+
+.Certificates-pic {
+  display: block;
+  width: 90%;
+  height: auto;
+  border-radius: 2px;
+  margin-top: 20px;
+  border: 3px solid #991494;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+
+/* Contact */
+.contact {
+  margin-top: 20px;
+  padding: 10px;
+  color: #b4d076;
+  background: #5d1792;
+  border: 2px solid #b83e3e;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Right Side (Projects) */
+.projects {
+  flex: 1;
+  padding: 20px;
+}
+
+.project {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 70px;
+  border-radius: 8px;
+  border-left: 5px solid #21fb09;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.project h3 {
+  margin-top: 0;
+}
+/* Certificates Section */
+.certificates {
+  margin: 70px auto ;
+  width: 30%;
+  background: #ffffff;
+  padding: 20px;
+  border: 3px solid #513c3c;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+/* Bottom Center GitHub Button */
+.github-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+
+.github-btn a {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #b83e3e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.github-btn a:hover {
+  background: #8e2d2d;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.blog {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff;
+  border: 2px solid #b83e3e;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.blog h2 {
+  margin-bottom: 10px;
+  color: #b83e3e;
+}
+
+.blog-post {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.blog-post h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.blog-post p {
+  font-size: 14px;
+  color: #444;
+}
+
+.blog-post a {
+  font-size: 14px;
+  color: #065160;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-post a:hover {
+  text-decoration: underline;
+}
+/* Blog Buttons */
+.read-more {
+  padding: 6px 12px;
+  background: #b83e3e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.read-more:hover {
+  background: #8e2d2d;
+}
+
+/* Modal Background */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 60%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease;
+}
+
+/* Close Button */
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+.close:hover {
+  color: red;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.hire-me {
+  text-align: center;
+  background: #222;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 40px auto;
+  width: 80%;
+  max-width: 600px;
+}
+.hire-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #b83e3e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.hire-btn:hover {
+  background: #8e2d2d;
+}
