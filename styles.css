@@ -1,292 +1,212 @@
+/* === Base Styles === */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: row;
-  background: #d7e76b;
-  color: #333;
-  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #000000;
+  transition: background 0.5s ease, color 0.5s ease;
+
+  /* Light mode gradient */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
-/* Dark Mode */
-.dark-mode {
-  background: #3383ad;
-  color: #cb9d9d;
+/* Animated Gradient */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.dark-mode .intro,
-.dark-mode .project,
-.dark-mode .certificates {
-  background: #1e1e1e;
-  border-color: #b83e3e;
+/* Headings */
+h1, h2, h3 {
+  margin: 20px 0 10px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.dark-toggle {
-  position: fixed;
-  top: 5px;
-  right: 5%;
-  padding: 8px 12px;
-  border: right;
-  border: 2px solid #b83e3e;
-  border-left: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background: #b83e3e;
-  color: #fff;
-  font-size: 18px;
-}
-.dark-toggle:hover {
-  background: #458ad8;
+/* Paragraphs */
+p {
+  margin-bottom: 15px;
 }
 
-/* Left Side (Intro) */
-.intro {
-  width: 30%;
+/* === Layout Cards === */
+.intro, .projects, .certificates, .blog {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #cacacb;
-  border-right: 3px solid #c9c9c900;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  margin: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+/* Profile Picture */
 .profile-pic {
   display: block;
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   margin: 20px auto;
-  border: 3px solid #b83e3e;
+  border: 3px solid #fff;
   object-fit: cover;
 }
 
+/* Certificates Image */
 .Certificates-pic {
+  width: 100%;
+  max-width: 400px;
   display: block;
-  width: 90%;
-  height: auto;
-  border-radius: 2px;
-  margin-top: 20px;
-  border: 3px solid #991494;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
-}
-
-/* Contact */
-.contact {
-  margin-top: 20px;
-  padding: 10px;
-  color: #b4d076;
-  background: #5d1792;
-  border: 2px solid #b83e3e;
+  margin: 20px auto;
   border-radius: 8px;
-  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Right Side (Projects) */
-.projects {
-  flex: 1;
-  padding: 20px;
+/* Buttons */
+button, .hire-btn, .form-btn, .read-more {
+  display: inline-block;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.project {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 70px;
-  border-radius: 8px;
-  border-left: 5px solid #21fb09;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.project h3 {
-  margin-top: 0;
-}
-/* Certificates Section */
-.certificates {
-  margin: 70px auto ;
-  width: 30%;
-  background: #ffffff;
-  padding: 20px;
-  border: 3px solid #513c3c;
-  border-radius: 5px;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.15);
-  text-align: left;
+button:hover, .hire-btn:hover, .form-btn:hover, .read-more:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ff512f, #dd2476);
 }
 
-/* Bottom Center GitHub Button */
+/* GitHub Buttons Fixed Bottom */
 .github-btn {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-
 }
-
 
 .github-btn a {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #b83e3e;
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 6px;
-  font-weight: bold;
+  margin: 0 5px;
 }
 
-.github-btn a:hover {
-  background: #8e2d2d;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.blog {
-  margin-top: 20px;
-  padding: 15px;
-  background: #fff;
-  border: 2px solid #b83e3e;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.blog h2 {
-  margin-bottom: 10px;
-  color: #b83e3e;
-}
-
+/* Blog Section */
 .blog-post {
   margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
 }
 
-.blog-post:last-child {
-  border-bottom: none;
-}
-
-.blog-post h3 {
-  font-size: 16px;
-  margin: 5px 0;
-}
-
-.blog-post p {
-  font-size: 14px;
-  color: #444;
-}
-
-.blog-post a {
-  font-size: 14px;
-  color: #065160;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.blog-post a:hover {
-  text-decoration: underline;
-}
-/* Blog Buttons */
-.read-more {
-  padding: 6px 12px;
-  background: #b83e3e;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-.read-more:hover {
-  background: #8e2d2d;
-}
-
-/* Modal Background */
+/* Modal */
 .modal {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
   z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
 }
 
-/* Modal Box */
 .modal-content {
   background: #fff;
+  color: #333;
   padding: 20px;
   width: 60%;
   max-width: 700px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  border-radius: 12px;
   animation: slideUp 0.3s ease;
 }
 
-/* Close Button */
-.close {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-.close:hover {
-  color: red;
-}
-
-/* Animation */
 @keyframes slideUp {
   from { transform: translateY(50px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
-.hire-me {
-  text-align: center;
-  background: #222;
-  color: white;
-  padding: 30px;
-  border-radius: 12px;
-  margin: 40px auto;
-  width: 80%;
-  max-width: 600px;
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
 }
-.hire-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #b83e3e;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
+
+/* === Dark Mode === */
+.dark-mode {
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e) !important;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #f0f0f0;
 }
-.hire-btn:hover {
-  background: #8e2d2d;
+
+.dark-mode .intro,
+.dark-mode .projects,
+.dark-mode .certificates,
+.dark-mode .blog,
+.dark-mode .modal-content {
+  background: rgba(20, 20, 20, 0.9);
+  color: #f0f0f0;
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.top-controls {
+
+.dark-mode button,
+.dark-mode .hire-btn,
+.dark-mode .form-btn,
+.dark-mode .read-more {
+  background: linear-gradient(90deg, #434343, #000000);
+}
+
+.dark-mode button:hover,
+.dark-mode .hire-btn:hover,
+.dark-mode .form-btn:hover,
+.dark-mode .read-more:hover {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+}
+
+/* Dark Toggle Button */
+.dark-toggle {
   position: fixed;
   top: 15px;
   right: 15px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.dark-toggle {
   background: #ffcc00;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 15px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.dark-toggle:hover {
+  background: #ffaa00;
+}
+.github-btn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
 }
 
-.form-btn {
-  background: #6c63ff;
+.github-btn .btn {
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  border-radius: 30px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.form-btn:hover {
-  background: #5548c8;
+.github-btn .btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #ff512f, #dd2476);
 }
+
+
