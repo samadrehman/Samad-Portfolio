@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catch the Circle — Mini Game</title>
+  <style>
+    :root{
+      --bg: #f6f6f8;
+      --panel: #ffffff;
+      --accent: #c94f4f;
+      --accent-2: #f08f4f;
+      --text: #111;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+    .panel{
+      width:100%;
+      max-width:980px;
+      background:var(--panel);
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.09);
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:18px;
+      align-items:start;
+    }
+    .info{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    h1{margin:0;font-size:22px}
+    p{margin:6px 0;color:#444}
+    .board{
+      background:linear-gradient(180deg,#eef1f6, #fff);
+      border-radius:10px;
+      height:520px;
+      position:relative;
+      overflow:hidden;
+      border:2px dashed rgba(0,0,0,0.04);
+    }
+
+    .circle{
+      position:absolute;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:700;font-size:20px;
+      box-shadow:0 8px 18px rgba(201,79,79,0.35), inset 0 -6px 12px rgba(255,255,255,0.05);
+      cursor:pointer;
+      user-select:none;
+      transition:transform 80ms ease;
+    }
+    .controls{display:flex;flex-direction:column;gap:12px;padding:6px}
+    .row{display:flex;gap:8px;align-items:center}
+    .btn{
+      background:var(--accent);
+      color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;
+      box-shadow:0 6px 14px rgba(201,79,79,0.18);
+    }
+    .btn.secondary{background:#4b5563}
+    .stat{
+      background:#fff;padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.05);
+      min-width:120px;text-align:center
+    }
+    .stat strong{display:block;font-size:22px}
+    .hint{font-size:13px;color:#666}
+    footer{grid-column:1/-1;margin-top:8px;text-align:center;color:#666;font-size:13px}
+    @media (max-width:900px){
+      .panel{grid-template-columns:1fr;max-width:520px}
+      .board{height:420px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel" role="application" aria-label="Catch the circle game">
+      <div>
+        <div class="info">
+          <h1>Catch the Circle</h1>
+          <p>Click the moving circle to earn points. The circle moves to a random location after each hit. Game lasts <strong>30 seconds</strong>. Try to beat your high score!</p>
+          <div class="board" id="board" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <aside class="controls" aria-hidden="false">
+        <div class="row">
+          <button class="btn" id="startBtn">Start Game</button>
+          <button class="btn secondary" id="resetBtn">Reset High Score</button>
+        </div>
+
+        <div class="row">
+          <div class="stat">
+            <div class="hint">Score</div>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <div class="hint">Time</div>
+            <strong id="time">30</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="stat" style="flex:1">
+            <div class="hint">High Score</div>
+            <strong id="high">0</strong>
+            <div style="font-size:12px;color:#777;margin-top:6px">Saved in your browser</div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px" class="hint">
+          Tip: Click quickly, but be precise — smaller circle option coming soon.
+        </div>
+      </aside>
+
+      <footer>Made with ❤️ — place this file as <code>game.html</code> and link from your main site</footer>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const board = document.getElementById('board');
+  const startBtn = document.getElementById('startBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const scoreEl = document.getElementById('score');
+  const timeEl = document.getElementById('time');
+  const highEl = document.getElementById('high');
+
+  const GAME_TIME = 30; // seconds
+  let timer = null;
+  let remaining = GAME_TIME;
+  let score = 0;
+  let playing = false;
+
+  const STORAGE_KEY = 'catch_circle_highscore_v1';
+  highEl.textContent = localStorage.getItem(STORAGE_KEY) || 0;
+
+  // create circle element
+  const circle = document.createElement('div');
+  circle.className = 'circle';
+  circle.textContent = '✦';
+  circle.style.display = 'none';
+  board.appendChild(circle);
+
+  function placeCircle() {
+    const pad = 10; // inner padding so circle doesn't go off-screen
+    const rect = board.getBoundingClientRect();
+    const cW = circle.offsetWidth;
+    const cH = circle.offsetHeight;
+
+    const maxX = Math.max(0, rect.width - cW - pad);
+    const maxY = Math.max(0, rect.height - cH - pad);
+
+    const x = Math.random() * maxX + pad;
+    const y = Math.random() * maxY + pad;
+
+    circle.style.transform = `translate(${x}px, ${y}px)`;
+    // subtle pop animation
+    circle.style.transition = 'transform 140ms cubic-bezier(.2,.9,.3,1), opacity 120ms';
+    circle.style.opacity = '1';
+  }
+
+  function startGame(){
+    if(playing) return;
+    playing = true;
+    score = 0;
+    remaining = GAME_TIME;
+    scoreEl.textContent = score;
+    timeEl.textContent = remaining;
+    circle.style.display = 'flex';
+    placeCircle();
+
+    // 1s interval timer
+    timer = setInterval(() => {
+      remaining--;
+      timeEl.textContent = remaining;
+      if(remaining <= 0){
+        endGame();
+      }
+    }, 1000);
+
+    // auto-move occasionally if not clicked
+    autoMoveLoop();
+  }
+
+  function endGame(){
+    playing = false;
+    clearInterval(timer);
+    circle.style.display = 'none';
+    timeEl.textContent = 0;
+    // update high score
+    const prev = Number(localStorage.getItem(STORAGE_KEY) || 0);
+    if(score > prev){
+      localStorage.setItem(STORAGE_KEY, score);
+      highEl.textContent = score;
+      alert(`Game over — new high score: ${score} 🎉`);
+    } else {
+      alert(`Game over — your score: ${score}`);
+    }
+  }
+
+  function hit() {
+    if(!playing) return;
+    // small "pop" feedback
+    circle.style.transform += ' scale(0.92)';
+    score++;
+    scoreEl.textContent = score;
+    // move immediately to new spot
+    setTimeout(placeCircle, 80);
+  }
+
+  // move circle every X ms if not clicked to keep it dynamic
+  let autoMoveTimer = null;
+  function autoMoveLoop(){
+    if(autoMoveTimer) clearInterval(autoMoveTimer);
+    autoMoveTimer = setInterval(() => {
+      if(!playing) return clearInterval(autoMoveTimer);
+      // move with small chance to avoid being too annoying
+      if(Math.random() > 0.45) placeCircle();
+    }, 900);
+  }
+
+  // click/tap handler on circle
+  circle.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    hit();
+  });
+
+  // also allow board click to nudge circle little (optional)
+  board.addEventListener('click', (e)=>{
+    if(!playing) return;
+    // if clicked outside circle, small penalty (optional). comment out if undesired:
+    // score = Math.max(0, score - 0);
+  });
+
+  // start/reset controls
+  startBtn.addEventListener('click', startGame);
+  resetBtn.addEventListener('click', ()=>{
+    if(confirm('Reset saved high score?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      highEl.textContent = 0;
+    }
+  });
+
+  // keyboard: space to start
+  document.addEventListener('keydown', (e)=>{
+    if(e.code === 'Space') {
+      e.preventDefault();
+      startGame();
+    }
+  });
+
+  // resize - reposition circle when board size changes
+  window.addEventListener('resize', () => {
+    if(playing) placeCircle();
+  });
+
+})();
+</script>
+</body>
+</html>
