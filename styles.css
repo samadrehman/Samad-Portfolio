@@ -5,10 +5,11 @@ body {
   line-height: 1.8;
   letter-spacing: 0.5px;
   color: #000000;
+  font-size: 45px;
   transition: background 0.5s ease, color 0.5s ease;
 
   /* Light mode gradient */
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #3e3e97, #3b9988, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
