@@ -1,34 +1,19 @@
-async function logVisitor() {
-  try {
-    // Prevent duplicate logs in same session
-    if (localStorage.getItem("visitorLogged")) {
-      console.log("Already logged in this browser session.");
-      return;
-    }
+// Replace with your Apps Script Web App deployment link
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygm0jDIK-Q5DuZPNfrxZhRfTt2tYr0ovMi1fpA0AhbDJ9l4sZtS1le-QpP-tOFo1wM6A/exec";
 
-    // Get visitor IP
-    let ipResponse = await fetch("https://api.ipify.org?format=json");
-    let ipData = await ipResponse.json();
-    let visitorIP = ipData.ip;
+function logVisitor() {
+  const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
+  localStorage.setItem("visitorId", visitorId);
 
-    // Get browser user agent
-    let userAgent = navigator.userAgent;
+  fetch("https://ipapi.co/json/") // for IP + location
+    .then(res => res.json())
+    .then(data => {
+      const ip = data.ip;
+      const loc = `${data.city}, ${data.country_name}`;
+      const ua = navigator.userAgent;
+      const localTime = new Date().toString();
 
-    // Send data to Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbzswoLBFeKB4C4u9diSwVcy18pNXrSXbmpYvgMD2_Uc5A3mv_KLZD2Zslv3u_a2K8dADQ/exec?ip=" 
-          + encodeURIComponent(visitorIP) 
-          + "&ua=" + encodeURIComponent(userAgent), {
-      method: "GET",
-      mode: "no-cors"
+      fetch(`${SCRIPT_URL}?ip=${encodeURIComponent(ip)}&ua=${encodeURIComponent(ua)}&loc=${encodeURIComponent(loc)}&visitorId=${encodeURIComponent(visitorId)}&localTime=${encodeURIComponent(localTime)}`);
     });
-
-    // Mark as logged
-    localStorage.setItem("visitorLogged", "true");
-    console.log("Visitor logged once per session.");
-
-  } catch (err) {
-    console.error("Visitor logging error:", err);
-  }
 }
-
 logVisitor();

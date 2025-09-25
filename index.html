@@ -4,21 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samad ur Rehman - Portfolio</title>
-  <script src="script.js"></script>
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Portfolio of Samad ur Rehman - Software Developer, ML Enthusiast, Cybersecurity Learner">
-  <meta name="keywords" content="Samad ur Rehman, portfolio, software developer, machine learning, cybersecurity, web development">
-  <meta name="author" content="Samad ur Rehman">
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <script>
+  // Detect mobile user agents and redirect
+  if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    window.location.href = "mobile.html";  // redirect to your mobile page
+  }
+</script>
 
-
-
-
-  <!-- Google Analytics -->
+<!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,233 +24,79 @@
   </script>
 </head>
 
-<script>
-  if (window.innerWidth < 768) {
-    window.location.href = "mobile.html"; // redirect mobile users
-  }
-</script>
 <body>
-  <!-- Dark Mode Toggle -->
-  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-
-  <!-- Left Side - Introduction -->
-  <div class="intro">
-    <h2>About Me</h2>
-    <p>
-    Hi I am Samad ur Rehman <br> Student based in Bhopal, India
-
-I build Websites , Machine learning models and Cybersecurity tools that solve my problems. <br>I care deeply about systems, design, ux, and especially speed. I also study at Government Hamidia Arts & Commerce College.
-
-If you are hiring, reach out via email!
-
-    </p>
-
-
-    <!-- Profile Picture -->
-    <img src="mes.png" alt="Samad ur Rehman" class="profile-pic">
-
-    <div class="hire-me">
-  <h2>💼 Looking to Hire?</h2>
-  <p>I am open for internships, freelance, or full-time roles.</p>
-  <a href="form.html" class="form-btn">📝 Work With Me</a>
-  <a href="mailto:samadrehman550@gmail.com" class="hire-btn">📩 Hire Me</a>
-  <a href="game.html" class="form-btn">📝 Play Game</a>
-</div>
-
-
-
-    <!-- Contact Section -->
-    <div class="contact">
-      <h3>Contact me</h3>
-      <a href="mailto:samadrehman550@gmail.com" class="hire-btn">📧 samadrehman550@gmail.com</a>
-    </div>
-    <!-- Blog Section -->
-<div class="blog">
-  <h2>My Blog</h2>
-  <div class="blog-post">
-    <h3>🚀 Getting Started with Machine Learning</h3>
-    <p>In this post, I share my journey into ML, key concepts, and resources that helped me...</p>
-    <button class="read-more" onclick="openBlog('mlBlog')">Read More</button>
-  </div>
-
-  <div class="blog-post">
-    <h3>🔒 Basics of Cybersecurity</h3>
-    <p>Understanding firewalls, encryption, and how to protect yourself online is essential today...</p>
-    <button class="read-more" onclick="openBlog('cybersecurityBlog')">Read More</button>
-  </div>
-  <!-- <div class="blog-post">
-    <h3>📝 Amazon SDE Assessment Story</h3>
-    <p>A personal story about preparing for the Amazon SDE assessment, mistakes made, and lessons learned...</p>
-    <button class="read-more" onclick="openBlog('amazon-assessment')">Read More</button>
-  </div> -->
-</div>
-</div>
-
-
-  <!-- Right Side - Projects -->
-  <div class="projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>API RATE LIMITER</h3>
-      <p>Python + Some tool to capture and analyse live traffic, detect anomalies, and visualize results.
-        •	Implemented rate limiting to prevent DDoS attacks.
-        •	Developed real-time traffic monitoring and alerting system.
-
+  <main class="container">
+    <!-- About -->
+    <header class="section">
+      <h1>Samad ur Rehman</h1>
+      <p> Student  based in Bhopal, India.</p>
+      <p>
+        I build projects that solve my own problems. I focus on design, speed, and usability.
+        I'm a BCA student passionate about machine learning, cybersecurity, and web development.
+        College: Government Hamidia arts & commerce College, Bhopal.<br>
+        Email : <a href="mailto:samadrehman550@gmail.com">samadrehman550@gmail.com</a>
       </p>
-    </div>
+      <br>
+      <nav>
+        <div class="button">
+        <a href="https://github.com/samadrehman" target="_blank"><button>GitHub</button></a> ·
+        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank"><button>LeetCode</button></a> ·
+        <a href="https://www.instagram.com/s_life_is_enjoy/"><button>Instagram</button></a> .
+        <a href="game.html" target="_blank"><button>Game</button></a> .
+        <a href="form.html" target="_blank"><button>FORM</button></a>
+        
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
 
-    <div class="project">
-      <h3>Customer segmentation model </h3>
-      <p>Implemented using Python and Scikit-learn. Achieved 87% accuracy in identifying customer groups
-       •	Developed Flask + HTML dashboard for visualization.
-       •  AI can learn by themselves when customers give their files.
-      </p>
+      </div>
+      </nav>
+    </header>
+    <br>
 
-    </div>
+<section class="section">
+  <h2>Highlights</h2>
+  
+ 
 
-    <div class="project">
-      <h3>SkyStrike Arena (3D Shooting Game)</h3>
-      <p>Built with Three.js. AI-driven logic, smooth rendering, real-time combat performance latency optimization from 15ms to 5ms.
-        •	Implemented AI for enemy behavior and difficulty scaling.
-        •	Optimized rendering for smooth performance.
-        •	Integrated real-time combat mechanics.
-      </p>
-    </div>
+  <!-- Highlight 2 -->
+  <div class="highlight">
+    <div class="text">
+      <h3>IIT Delhi Certificate</h3>
+      <p>Completed Machine Learning in Finance course, IIT Delhi (2025).</p>
+      </div>
+    <img src="delhi.png" alt="IIT Delhi Certificate">
+    <br>
+    <h3>Python Certificate</h3>
+    <p> Python Certificate from Technology developer (2025).</p>
+    <img src="python.png" alt="Python Certificate">
   </div>
+</section>
 
-  <!-- Certificates Section -->
-  <div class="certificates">
-    <h2>Certificates & Achievements</h2>
-    <ul>
-      <li>IIT Delhi Certificate – Machine Learning in Finance</li>
-      <li>Open-Source Contributor – GitHub Projects</li>
-      <li>Python Programming Modules 1 & 2 – Technology Developers</li>
-      <li>Foundations of Cybersecurity – Udemy</li>
-    </ul>
-      <img src="delhi.png" alt="IIT Delhi Certificate" class="Certificates-pic">
+
+    <!-- Projects -->
+    <section class="section">
+      <h2>Projects</h2>
+      <div class="project">
+        <a href="https://github.com/samadrehman/API-RATE-LIMITER" class="code-link">API Rate Limiter</a> — Real-time traffic monitoring + DDoS protection tool.
+      </div>
+      <div class="project">
+        <a href="https://github.com/samadrehman/Customer-segmentation" class="code-link">Customer Segmentation</a> — ML model to cluster customers with 87% .
+      </div>
+      <div class="project">
+        <a href="https://github.com/samadrehman/FLY-GAME-" class="code-link">SkyStrike Arena</a> — 3D Shooting Game with AI-driven enemies.
+      </div>
+      <div class="project">
+        <a href="https://github.com/samadrehman/ML-Finance-Portfolio" class="code-link">ML Finance Project</a> — Directional Accuracy: ~76% Weighted Portfolio Sharpe Ratio: 0.11 Maximum Drawdown: -11.18%
+    </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h2>Experience</h2>
+      <div class="experience">Open Source Contributor — GitHub (2024–Present)</div>
+      <div class="experience"> Participant in Competition — Kaggle (2025–Present)</div>
+    </section>
 
     
-  </div>
-
-
-
-  <!-- Bottom Center - GitHub Button -->
- <div class="github-btn">
-  <a href="https://github.com/samadrehman" target="_blank" class="btn">Visit My GitHub</a>
-  <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" class="btn">Visit My LeetCode</a>
-  <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" class="btn">Visit My Instagram</a>
-</div>
-
-  <!-- Dark Mode Script -->
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
-  <!-- Blog Modals -->
-  <div id="mlBlog" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBlog('mlBlog')">&times;</span>
-      <h2>🚀 Getting Started with Machine Learning</h2>
-      <p>
-        Machine Learning (ML) is a fascinating field that combines statistics, computer science, and domain expertise to create systems that can learn from data. My journey into ML began with understanding the basics of algorithms like linear regression, decision trees, and clustering. I found resources like Coursera's Machine Learning course by Andrew Ng and books like "Hands-On Machine Learning with Scikit-Learn and TensorFlow" incredibly helpful.
-      </p>
-      <p>
-        Key concepts I focused on included supervised vs unsupervised learning, overfitting vs underfitting, and model evaluation metrics. Practical experience was crucial, so I worked on projects like predicting house prices and classifying images using libraries such as Scikit-learn and TensorFlow. 
-      </p>
-      <p>
-        For anyone starting out, I recommend:
-        <ul>
-          <li>Learning Python programming</li>
-          <li>Understanding basic statistics and linear algebra</li>
-          <li>Working on small projects to apply concepts</li>
-        </ul>
-        The field is vast and constantly evolving, but with dedication and curiosity, anyone can make significant strides in machine learning.
-      </p>
-    </div>
-  </div>
-  <div id="cybersecurityBlog" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBlog('cybersecurityBlog')">&times;</span>
-      <h2>🔒 Basics of Cybersecurity</h2>
-      <p>
-        In today's digital age, cybersecurity is more important than ever. It involves protecting systems, networks, and data from cyber attacks. My interest in cybersecurity started with understanding common threats like malware, phishing, and ransomware. I took courses on platforms like Udemy and read books such as "The Web Application Hacker's Handbook" to deepen my knowledge.
-      </p>
-      <p>
-        Key concepts I learned include:
-        <ul>
-          <li>Firewalls and Intrusion Detection Systems (IDS)</li>
-          <li>Encryption techniques for data protection</li>
-          <li>Network security protocols</li>
-          <li>Ethical hacking and penetration testing</li>
-        </ul>
-        Practical experience was gained through labs and simulations where I practiced identifying vulnerabilities and securing systems. Tools like Wireshark, Metasploit, and Nmap became essential in my toolkit.
-      </p>
-      <p>
-        For those interested in cybersecurity, I recommend:
-        <ul>
-          <li>Building a strong foundation in networking and operating systems</li>
-          <li>Learning about different types of cyber threats</li>
-          <li>Practicing ethical hacking in controlled environments</li>
-          <li>Staying updated with the latest security trends and news</li>
-        </ul>
-        Cybersecurity is a dynamic field that requires continuous learning, but it offers exciting opportunities to make a real impact in protecting digital assets.
-      </p>
-    </div>
-  </div>
-    <div id="amazon-assessment" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBlog('amazon-assessment')">&times;</span>
-      <h2> Story Time</h2>
-      <p>
-        The story of how I prepare for an assesment of Amazon SDE.
-      </p>
-      <p>
-        Key concepts I focused on included data structures, algorithms and how I practiced coding problems on platforms like LeetCode , and I also reviewed common assesment question tests.
-      </p> 
-      <p>
-        For anyone preparing for a similar assessment, I recommend do not make same mistake as me:
-        <ul>
-          <li>Date 9th september 2025 at 4:06 I get assesment link excited </li>
-          <li>I have 5 days to complete assesment</li>
-          <li>I go on youtube and leetcode start practicing</li>
-        </ul>
-        day 2nd I find  every resource which is helpful for me to crack assesment
-        
-      </p>
-        
-        Practicing coding problems regularly is key to success.
-      <p>
-        on day 4th I complete my assesment in 1 hour and 30 minutes.:
-        <ul>
-          <li>The assesment was dificult </li>
-          <li>I know that i get rejected but for sure now I start learning everything again </li>
-          <li>and after 6 month i give assement one more time </li>
-          <li>Right now I am studying why i failed and how i crack next time that assesment</li>
-        </ul> 
-      </p>
-    </div>
-  </div>
-  <script>
-function openBlog(id) {
-  document.getElementById(id).style.display = "flex";
-}
-
-function closeBlog(id) {
-  document.getElementById(id).style.display = "none";
-}
-
-// Optional: Close on ESC key
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    document.querySelectorAll(".modal").forEach(modal => {
-      modal.style.display = "none";
-    });
-  }
-});
-</script>
-
   <!-- Rain Canvas -->
 <canvas id="rain"></canvas>
 
@@ -357,6 +198,10 @@ document.addEventListener("keydown", function(event) {
   canvas.style.left = "0";
   canvas.style.pointerEvents = "none"; // click-through
 
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
   
 </script>
 </body>

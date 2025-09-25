@@ -1,33 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Access Restricted</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
+<script>
+  window.onload = function() {
+    // Mobile Restriction
+    if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      document.body.innerHTML = `
+        <style>
+          body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e3c72, #2a5298);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+          }
+          @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .denied-box {
+            background: rgba(0,0,0,0.55);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+          }
+          h1 { font-size: 2.2rem; margin-bottom: 10px; }
+          p { font-size: 1.1rem; opacity: 0.9; }
+          a { color: #ffcc00; font-weight: bold; text-decoration: none; }
+          a:hover { text-decoration: underline; }
+        </style>
+        <div class="denied-box">
+          <h1>🚫 Access Denied</h1>
+          <p>This website is only available on Desktop or Laptop.<br>
+          Please try again from a larger screen 💻</p>
+          <p>📧 Contact <a href="mailto:samadrehman550@gmail.com">samadrehman550@gmail.com</a> to request access.</p>
+        </div>
+      `;
     }
-    .box {
-      max-width: 500px;
-      margin: auto;
-      background: #222;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-  </style>
-</head>
-<body>
-  <div class="box">
-    <h2>⚠️ Not Available on Mobile</h2>
-    <p>This portfolio is designed for desktop/laptop only.<br>
-       Please visit on a larger screen 📺.</p>
-    <p>📧 Contact: <a href="mailto:samadrehman550@gmail.com" style="color:#4cafef;">samadrehman550@gmail.com</a></p>
-  </div>
-</body>
-</html>
+  };
+</script>
