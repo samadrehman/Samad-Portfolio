@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samad ur Rehman - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Favicon -->
+<link rel="icon" type="images/png" href="images/favicon.png">
+
 
   <script>
   // Detect mobile user agents and redirect
@@ -24,7 +27,6 @@
   </script>
 </head>
 
-<link rel="icon" type="images" href="favicon.png">
 
 <body>
   <main class="container">
@@ -204,7 +206,130 @@
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
-  
 </script>
+
+
+  <canvas id="fireworkCanvas"></canvas>
+
+<script>
+const fireCanvas = document.getElementById("fireworkCanvas");
+const fwCtx = fireCanvas.getContext("2d");
+
+fireCanvas.style.position = "fixed";
+fireCanvas.style.top = "0";
+fireCanvas.style.left = "0";
+fireCanvas.style.width = "100%";
+fireCanvas.style.height = "100%";
+fireCanvas.style.pointerEvents = "none";
+fireCanvas.style.display = "none"; // hidden until Ctrl+B
+
+fireCanvas.width = window.innerWidth;
+fireCanvas.height = window.innerHeight;
+
+window.addEventListener("resize", () => {
+  fireCanvas.width = window.innerWidth;
+  fireCanvas.height = window.innerHeight;
+});
+
+let fireworks = [];
+
+// Firework class
+class Firework {
+  constructor(x, y) {
+    this.x = x;
+    this.y = fireCanvas.height;
+    this.targetY = y;
+    this.trail = [];
+    this.exploded = false;
+    this.particles = [];
+    this.speedY = -8;
+  }
+  update() {
+    if (!this.exploded) {
+      this.trail.push({ x: this.x, y: this.y });
+      if (this.trail.length > 150) this.trail.shift();
+      this.y += this.speedY;
+      if (this.y <= this.targetY) this.explode();
+    } else {
+      this.particles.forEach(p => p.update());
+    }
+  }
+  draw() {
+    if (!this.exploded) {
+      fwCtx.beginPath();
+      fwCtx.moveTo(this.x, this.y);
+      fwCtx.lineTo(this.x, this.y + 1);
+      fwCtx.strokeStyle = "orange";
+      fwCtx.stroke();
+
+      this.trail.forEach((t, i) => {
+        fwCtx.fillStyle = `rgba(255,150,0,${i / this.trail.length})`;
+        fwCtx.fillRect(t.x, t.y, 2, 2);
+      });
+    } else {
+      this.particles.forEach(p => p.draw());
+    }
+  }
+  explode() {
+    this.exploded = true;
+    for (let i = 0; i < 230; i++) {
+      this.particles.push(new Particle(this.x, this.y));
+    }
+  }
+}
+
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.speedX = (Math.random() - 0.5) * 6;
+    this.speedY = (Math.random() - 0.5) * 6;
+    this.size = Math.random() * 5 + 2;
+    this.life = 100;
+    this.color = `hsl(${Math.random() * 360},100%,50%)`;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.speedY += 0.05;
+    this.life--;
+  }
+  draw() {
+    fwCtx.beginPath();
+    fwCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    fwCtx.fillStyle = this.color;
+    fwCtx.fill();
+  }
+}
+
+function animate() {
+  fwCtx.fillStyle = "rgba(0,0,0,0.2)";
+  fwCtx.clearRect(0, 0, fireCanvas.width, fireCanvas.height);
+
+
+  fireworks.forEach((fw, i) => {
+    fw.update();
+    fw.draw();
+    if (fw.exploded && fw.particles.every(p => p.life <= 0)) {
+      fireworks.splice(i, 1);
+    }
+  });
+
+  requestAnimationFrame(animate);
+}
+
+// Ctrl+B → launch firework
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === "b") {
+    fireCanvas.style.display = "block";
+    fireworks.push(new Firework(
+      Math.random() * fireCanvas.width,
+      Math.random() * fireCanvas.height / 2
+    ));
+    if (fireworks.length === 3) animate();
+  }
+});
+</script>
+
 </body>
 </html>
