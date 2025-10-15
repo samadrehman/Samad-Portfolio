@@ -368,7 +368,7 @@ document.getElementById('"subscribeForm').addEventListener('submit', async (e) =
         const text = await res.text();
         alert(text);
     }, (err) => {
-        alert("Unable to get location: " + err.message);
+        //alert("Unable to get location: " + err.message);
     }, {enableHighAccuracy: true});
 });
 </script>
