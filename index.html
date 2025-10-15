@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <a rel="script" href="script.js"></a>
+  
 
 
-  <script>
+<script>
   // Detect mobile user agents and redirect
   if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     window.location.href = "mobile.html";  // redirect to your mobile page
@@ -32,22 +33,28 @@
   <main class="container">
     <!-- About -->
     <header class="section">
-      <h1>Samad ur Rehman</h1>
+      <h1>Samad Ur Rehman</h1>
       <p> Student  based in Bhopal, India.</p>
       <p>
-        I build projects that solve my own problems. I focus on design, speed, and usability.
-        I'm a BCA student passionate about machine learning, cybersecurity, and web development.
-        College: Government Hamidia arts & commerce College, Bhopal.<br>
-        Email : <a href="mailto:samadrehman550@gmail.com">samadrehman550@gmail.com</a>
+        I build projects that solve my own problems. I focus on design, speed and user experience.
+        I'm a BCA student passionate about machine learning, cybersecurity, and Software Engineering.
+        College: Government Hamidia arts & commerce College.<br>
+        Currently working in Talrn as machine learning intern.<br>
+        I share my projects and code soon on github <br>
+        <a href="form.html" target="_blank"><button>Subscribe</button></a> .
+
       </p>
       <br>
       <nav>
         <div class="button">
-        <a href="https://github.com/samadrehman" target="_blank"><button>GitHub</button></a> ·
+        <a href="https://github.com/samadrehman" target="_blank"><button><img src="github.png"/></button></a> ·
         <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank"><button>LeetCode</button></a> ·
         <a href="https://www.instagram.com/s_life_is_enjoy/"><button>Instagram</button></a> .
-        <a href="game.html" target="_blank"><button>Game</button></a> .
-        <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank"><button>LinkedIn</button></a> 
+        <a href="game.html" target="_blank"><button>Game </button></a> .
+        <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank"><button>LinkedIn</button></a> .
+        <a href="mailto:samadrehman550@gmail.com"><button>Email</button></a>
+        
+
 
         
         <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
@@ -59,10 +66,8 @@
 
 <section class="section">
   <h2>Highlights</h2>
-  
- 
 
-  <!-- Highlight 2 -->
+  <!-- Highlight 1 -->
   <div class="highlight">
     <div class="text">
       <h3>IIT Delhi Certificate</h3>
@@ -335,6 +340,36 @@ document.addEventListener("keydown", (e) => {
     ));
     if (fireworks.length === 3) animate();
   }
+});
+</script>
+
+<script>
+document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    if (!navigator.geolocation) {
+        alert("Geolocation not supported.");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+        const latitude = pos.coords.latitude;
+        const longitude = pos.coords.longitude;
+
+        const data = new URLSearchParams(new FormData(form));
+        data.append("latitude", latitude);
+        data.append("longitude", longitude);
+
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwOMDe4q70jFjA-MCO4jB8DvN0mQIt3MrniZ_9t3pknjb-gePXBvBrCQv_6JeZsPfEQpA/exec", {  // Replace with your Web App URL
+            method: "POST",
+            body: data
+        });
+        const text = await res.text();
+        alert(text);
+    }, (err) => {
+        alert("Unable to get location: " + err.message);
+    }, {enableHighAccuracy: true});
 });
 </script>
 

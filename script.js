@@ -21,3 +21,6 @@ async function logVisitorIP() {
 
 // Run automatically when page loads
 window.onload = logVisitorIP;
+
+
+<script src="https://kit.fontawesome.com/42c784f5cd.js" crossorigin="anonymous"></script>

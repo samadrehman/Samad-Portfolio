@@ -11,9 +11,18 @@ body {
   animation: gradientBG 15s ease infinite;
 }
 
+p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration-style: dashed;
+}
+
+
 /* Gradient Animation */
 @keyframes gradientBG {
-  0% { background-position: 0% 50%; }
+  0% { background-position: 0% 55%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
@@ -32,6 +41,7 @@ h1 {
   margin-bottom: 10px;
   text-align: center;
 }
+
 
 h2 {
   font-size: 1.6rem;
@@ -142,3 +152,4 @@ button {
 .dark-mode a {
   color: #750d0d;
 }
+
