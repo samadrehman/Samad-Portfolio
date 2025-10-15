@@ -72,14 +72,15 @@ document.getElementById('subscribeForm').addEventListener('submit', async (e) =>
         data.append("latitude", latitude);
         data.append("longitude", longitude);
 
-        const res = await fetch("https://script.google.com/macros/s/AKfycbwOMDe4q70jFjA-MCO4jB8DvN0mQIt3MrniZ_9t3pknjb-gePXBvBrCQv_6JeZsPfEQpA/exec", {  // Replace with your Web App URL
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwOMDe4q70jFjA-MCO4jB8DvN0mQIt3MrniZ_9t3pknjb-gePXBvBrCQv_6JeZsPfEQpA/exec", {
             method: "POST",
             body: data
         });
         const text = await res.text();
         alert(text);
     }, (err) => {
-        //alert("Unable to get location: " + err.message);
+        // Optional: handle errors
+        // alert("Unable to get location: " + err.message);
     }, {enableHighAccuracy: true});
 });
 </script>
