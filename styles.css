@@ -83,8 +83,10 @@ a.code-link:hover::after {
 
 /* Sections */
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
+
 
 /* Highlights */
 .highlight {
@@ -99,6 +101,7 @@ a.code-link:hover::after {
 .project, .experience, .award {
   margin-bottom: 12px;
   font-size: 1.1rem;
+  text-align: left;
   line-height: 1.6;
   display: block;
 }

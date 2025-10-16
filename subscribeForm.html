@@ -13,7 +13,6 @@
     width: 300px;
     height: 100px;
     margin: 50px auto;
-    animation:  duration timing-function delay iteration-count direction fill-mode;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 260px;
@@ -49,41 +48,15 @@ document.getElementById('subscribeForm').addEventListener('submit', async (e) =>
 });
 </script>
 
-
-
-
 <p id="location"></p>
 
+
 <script>
-document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const form = e.target;
 
-    if (!navigator.geolocation) {
-        alert("Geolocation not supported.");
-        return;
-    }
-
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-        const latitude = pos.coords.latitude;
-        const longitude = pos.coords.longitude;
-
-        const data = new URLSearchParams(new FormData(form));
-        data.append("latitude", latitude);
-        data.append("longitude", longitude);
-
-        const res = await fetch("https://script.google.com/macros/s/AKfycbwOMDe4q70jFjA-MCO4jB8DvN0mQIt3MrniZ_9t3pknjb-gePXBvBrCQv_6JeZsPfEQpA/exec", {
-            method: "POST",
-            body: data
-        });
-        const text = await res.text();
-        alert(text);
-    }, (err) => {
-        // Optional: handle errors
-        // alert("Unable to get location: " + err.message);
-    }, {enableHighAccuracy: true});
-});
 </script>
+
+
+
 
 
 
