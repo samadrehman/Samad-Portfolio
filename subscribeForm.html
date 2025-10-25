@@ -39,7 +39,7 @@ document.getElementById('subscribeForm').addEventListener('submit', async (e) =>
     const form = e.target;
     const data = new URLSearchParams(new FormData(form));
 
-    const res = await fetch("https://script.google.com/macros/s/AKfycbz-oE4TxUDT9OfC9nT3SIkpdeTjH4kR2BNnzp99sQ8rvom_OnhZwz8C3oqbZPvCGsBsbw/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwU66GzTuJ-gO1rSqo5MtemTdAbst7AgjAKfUOl5PWPK9hHA850hmnVldF12vQs1M0zGg/exec", {
         method: "POST",
         body: data
     });
