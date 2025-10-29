@@ -1,158 +1,271 @@
-/* Base */
+/* ===============================
+   SAMAD REHMAN PORTFOLIO STYLE
+   Premium Light/Dark UI
+   =============================== */
+
+/* ---------- Root Theme Colors ---------- */
+:root {
+  --bg: #8497be;
+  --text: #000000;
+  --card: #ffffff;
+  --accent: #445464;
+  --accent-hover: #005fcc;
+  --border: #191b21;
+  --shadow: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Dark Mode Variables ---------- */
+body.dark-mode {
+  --bg: #0f1115;
+  --text: #ffffff;
+  --card: #000000;
+  --accent: #5ea8ff;
+  --accent-hover: #91c9ff;
+  --border: #333;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Global ---------- */
 body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", sans-serif;
   margin: 0;
-  font-family: "Inter", sans-serif;
-  line-height: 2.6;
-  color: #f2f2f2;
-
-  /* animated gradient */
-  background: linear-gradient(-45deg, #000000, #0e1f84e6, #160808, #2f6e60);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  padding: 0;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-decoration-style: dashed;
-}
-
-
-/* Gradient Animation */
-@keyframes gradientBG {
-  0% { background-position: 0% 55%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-/* Center container */
+/* ---------- Layout Grid ---------- */
 .container {
-  max-width: 750px; /* fixed width */
-  margin: 0 auto;   /* centers horizontally */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 4rem 10%;
 }
 
-/* Headings */
-h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-h2 {
-  font-size: 1.6rem;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 5px;
-}
-
-h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-/* Links */
-a {
-  color: #00bfff;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #ff4d6d;
-}
-
-/* Hover "code →" */
-a.code-link::after {
-  content: " → code";
-  opacity: 0;
-  margin-left: 8px;
-  color: #999;
-  font-size: 0.9rem;
-  transition: opacity 0.2s;
-}
-
-a.code-link:hover::after {
-  opacity: 1;
-}
-
-/* Sections */
-.section {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-
-/* Highlights */
-.highlight {
-  background: #1a1a1a;
-  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-/* Project / Experience / Awards items */
-.project, .experience, .award {
-  margin-bottom: 12px;
-  font-size: 1.1rem;
-  text-align: left;
-  line-height: 1.6;
-  display: block;
-}
-
-/* Center nav */
-header nav {
-  margin-top: 15px;
-  text-align: center;
-}
-
-/* Buttons */
-button {
-  background: #cdb7b7;
-  display: inline-block;
-  color: #55147e;
-  border: 1px solid #e2e2e2;
-  border-radius: 5px;
-  padding: 8px 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-
-/* Toggle button */
-.dark-toggle {
+/* ---------- Top Navigation Buttons ---------- */
+nav {
   position: fixed;
   top: 20px;
-  right: 20px;
-  background: #f8f8f8;
-  border: none;
-  padding: 12px 16px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+}
+
+nav button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 50%;
+  padding: 8px 10px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 20px;
-  z-index: 9999;
-  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: var(--accent);
+  color: rgb(255, 254, 254);
+  transform: translateY(-2px);
+}
+
+.dark-toggle {
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .dark-toggle:hover {
-  background: #ffaa00;
-  transform: scale(1.1);
+  background: var(--accent-hover);
 }
 
-/* Dark Mode */
-.dark-mode {
-  background: #fffefe !important;
-  color: #015f81 !important;
+/* ---------- Left Section: Profile & Tech ---------- */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.dark-mode a {
-  color: #750d0d;
+.profile {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+
+
+.profile h1 {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+.profile p {
+  margin: 0.2rem 0;
+  color: #555;
+}
+
+.tech-stack {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.tech-stack h2 {
+  margin-top: 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tags span {
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Right Section: Certificates & Experience ---------- */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.highlight img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+.highlight img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+/* ---------- Projects & Experience ---------- */
+.project, .experience {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.project:hover, .experience:hover {
+  background: rgba(159, 171, 183, 0.1);
+}
+
+.code-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.code-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Responsiveness ---------- */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  nav {
+    right: 15px;
+  }
+}
+
+/* ---------- Button Container ---------- */
+.profile-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* ---------- Primary Button (Subscribe) ---------- */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--shadow);
+}
+
+/* ---------- Secondary Button (My Story) ---------- */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---------- Dark Mode Tweaks ---------- */
+body.dark-mode .btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+body.dark-mode .btn-secondary {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+body.dark-mode .btn-secondary:hover {
+  background: var(--accent);
+  color: white;
 }
 

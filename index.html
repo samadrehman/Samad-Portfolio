@@ -1,343 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samad ur Rehman - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <a rel="script" href="script.js"></a>
-  
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="orca.css">
+  <link rel="import" href="orca.html" />
+  <script src="orca.js" defer></script>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
-
-
-
-<!-- Google Analytics -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-STRPMP0TZQ');
   </script>
 </head>
 
-
 <body>
+  <header class="top-bar">
+    <h1 class="site-title">Samad ur Rehman</h1>
+    <nav class="social-buttons">
+      <a href="https://github.com/samadrehman" target="_blank">GitHub</a>
+      <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">LeetCode</a>
+      <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank">LinkedIn</a>
+      <a href="game.html" target="_blank">Game</a>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+  </header>
+
+  <canvas id="orcaCanvas"></canvas>
+<div class="watching-text">I’m watching 🐋</div>
+
   <main class="container">
-    <!-- About -->
-    <header class="section">
-      <h1>Samad Ur Rehman</h1>
-      <p> Student  based in Bhopal, India.</p>
-      <p>
-        I build projects that solve my own problems. I focus on design, speed and user experience.
-        I'm a BCA student passionate about machine learning, cybersecurity, and Software Engineering.
-        College: Government Hamidia arts & commerce College.<br>
-        <a href="mailto:samadrehman550@gmail.com"> samadrehman550@gmail.com</a> <br>
-        <a href="subscribeForm.html" target="_blank"><button>Subscribe</button></a> 
-        <a href="story.html"target="_blank"><button>My Story</button></a>
+    <!-- LEFT SIDE -->
+    <section class="left-section">
+      <div class="profile">
+        <p class="intro">
+          Student based in Bhopal, India. <br />
+          I build projects that solve my own problems. Focused on design, speed, and user experience.<br />
+          College: Government Hamidia Arts & Commerce College.<br />
+          <a href="mailto:samadrehman550@gmail.com">samadrehman550@gmail.com</a> <br />
+          <div class="profile-buttons">
+  <a href="subscribeForm.html" target="_blank" class="btn-primary">Subscribe</a>
+  <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
+</div>
 
-      </p>
-      <br>
-      <nav>
-        <div class="button">
-        <a href="https://github.com/samadrehman" target="_blank"><button><img src="github.png"/></button></a> ·
-        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank"><button>LeetCode</button></a> ·
-        <a href="https://www.instagram.com/s_life_is_enjoy/"><button>Instagram</button></a> .
-        <a href="game.html" target="_blank"><button>Game </button></a> .
-        <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank"><button>LinkedIn</button></a> 
-        
-
-
-        
-        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-
+        </p>
       </div>
-      </nav>
-    </header>
-    <br>
 
-<section class="section">
-  <h2>Highlights</h2>
-
-  <!-- Highlight 1 -->
-  <div class="highlight">
-    <div class="text">
-      <h3>IIT Delhi Certificate</h3>
-      <p>Completed Machine Learning in Finance course, IIT Delhi (2025).</p>
+      <div class="tech-stack">
+        <h2>Tech Stack</h2>
+        <ul>
+          <li>Python</li>
+          <li>HTML / CSS / JavaScript / TypeScript</li>
+          <li>Go</li>
+          <li>Machine Learning (medium level)</li>
+          <li>Cybersecurity basics</li>
+          <li>Docker, Git & GitHub</li> </br>
+        <h2>Experience</h2>
+          <ul>
+            <li><strong>Machine Learning Intern at Talrn</strong> (Oct 2025 - Present)</li>
+            <li><strong>Open Source Contributor</strong> on GitHub</li>
+            <li><strong>Participant</strong> in Kaggle Competitions</li>
+        </ul>
       </div>
-    <img src="delhi.png" alt="IIT Delhi Certificate">
-    <br>
-    <h3>Python Certificate</h3>
-    <p> Python Certificate from Technology developer (2025).</p>
-    <img src="python.png" alt="Python Certificate">
-  </div>
-</section>
-
-
-    <!-- Projects -->
-    <section class="section">
-      <h2>Projects</h2>
-      <div class="project">
-        <a href="https://github.com/samadrehman/API-RATE-LIMITER" class="code-link">API Rate Limiter</a> — Real-time traffic monitoring + DDoS protection tool.
-      </div>
-      <div class="project">
-        <a href="https://github.com/samadrehman/Customer-segmentation" class="code-link">Customer Segmentation</a> — ML model to cluster customers with 87% .
-      </div>
-      <div class="project">
-        <a href="https://github.com/samadrehman/FLY-GAME-" class="code-link">SkyStrike Arena</a> — 3D Shooting Game with AI-driven enemies.
-      </div>
-      <div class="project">
-        <a href="https://github.com/samadrehman/ML-Finance-Portfolio" class="code-link">ML Finance Project</a> — Directional Accuracy: ~76% Weighted Portfolio Sharpe Ratio: 0.11 Maximum Drawdown: -11.18%
-    </div>
-    <div class="project">
-      <a href="https://github.com/samadrehman/Fake-news-ML" class="code-link">Fake News Detection</a> — Fake News Dashboard A simple web application that predicts whether a news article is Real or Fake using a trained deep learning model. Built with Flask, TensorFlow, and Keras.
-    </div> 
-    <div class="project">
-      <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" class="code-link">AI Text Generator</a> — It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.
-    </div>
-    </section><br>
-
-    <!-- Experience -->
-    <div class="Experience"></div> 
-    <section class="section">
-      <h2>Experience</h2>
-      <div class ="experience">Talrn — Machine learning intern  (08 October 2025 - Present )</div>
-      <div class="experience">Open Source Contributor — GitHub </div>
-      <div class="experience"> Participant in Competition — Kaggle </div>
     </section>
-  </div>
+
+    <!-- RIGHT SIDE -->
+    <section class="right-section">
+      <div class="certificates">
+        <h2>Certificates</h2>
+
+        <div class="certificate-item">
+          <img src="delhi.png" alt="IIT Delhi Certificate" />
+          <p>IIT Delhi — Machine Learning in Finance (2025)</p>
+        </div>
+
+        <div class="certificate-item">
+          <img src="python.png" alt="Python Certificate" />
+          <p>Python Certificate from Technology Developer (2025)</p>
+        </div>
+      </div>
 
     
-  <!-- Rain Canvas -->
-<canvas id="rain"></canvas>
 
-<script>
-  const canvas = document.getElementById("rain");
-  const ctx = canvas.getContext("2d");
-  let rainDrops = [];
-  let raining = false;
-  let flashOpacity = 0;
-
-  // Resize canvas
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
-  // Raindrop object
-  class RainDrop {
-    constructor() {
-      this.reset();
-    }
-    reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * -canvas.height;
-      this.length = Math.random() * 25 + 15;
-      this.speed = Math.random() * 5 + 5;
-      this.thickness = Math.random() * 2 * 1; // raindrop width
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.strokeStyle = "rgba(174,194,224,0.8)";
-      ctx.lineWidth = this.thickness;
-      ctx.moveTo(this.x, this.y);
-      ctx.lineTo(this.x, this.y + this.length);
-      ctx.stroke();
-    }
-    update() {
-      this.y += this.speed;
-      if (this.y > canvas.height) {
-        this.reset();
-        this.y = Math.random() * -20;
-      }
-      this.draw();
-    }
-  }
-
-  // Generate raindrops
-  for (let i = 0; i < 590; i++) {
-    rainDrops.push(new RainDrop());
-  }
-
-  function animateRain() {
-    if (!raining) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    rainDrops.forEach(drop => drop.update());
-
-    // Lightning flash effect
-    if (flashOpacity > 0) {
-      ctx.fillStyle = `rgba(255,255,255,${flashOpacity})`;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      flashOpacity -= 0.3; // fade out
-    }
-
-    requestAnimationFrame(animateRain);
-  }
-
-  // Random lightning trigger
-  function randomLightning() {
-    if (raining) {
-      if (Math.random() < 0.10) { // 10% chance
-        flashOpacity = 0.10; // bright flash
-      }
-    }
-    setTimeout(randomLightning, 200);
-  }
-  randomLightning();
-
-  // Keyboard shortcut: Ctrl + M
-  document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.key === "m") {
-      raining = !raining;
-      if (raining) {
-        canvas.style.display = "block";
-        animateRain();
-      } else {
-        canvas.style.display = "none";
-      }
-    }
-  });
-
-
-  // Initially hidden
-  canvas.style.display = "none";
-  canvas.style.position = "fixed";
-  canvas.style.top = "0";
-  canvas.style.left = "0";
-  canvas.style.pointerEvents = "none"; // click-through
-
-
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-}
-</script>
-
-
+  <!-- Rain + Fireworks Canvas -->
+  <canvas id="rain"></canvas>
   <canvas id="fireworkCanvas"></canvas>
 
-<script>
-const fireCanvas = document.getElementById("fireworkCanvas");
-const fwCtx = fireCanvas.getContext("2d");
-
-fireCanvas.style.position = "fixed";
-fireCanvas.style.top = "0";
-fireCanvas.style.left = "0";
-fireCanvas.style.width = "100%";
-fireCanvas.style.height = "100%";
-fireCanvas.style.pointerEvents = "none";
-fireCanvas.style.display = "none"; // hidden until Ctrl+B
-
-fireCanvas.width = window.innerWidth;
-fireCanvas.height = window.innerHeight;
-
-window.addEventListener("resize", () => {
-  fireCanvas.width = window.innerWidth;
-  fireCanvas.height = window.innerHeight;
-});
-
-let fireworks = [];
-
-// Firework class
-class Firework {
-  constructor(x, y) {
-    this.x = x;
-    this.y = fireCanvas.height;
-    this.targetY = y;
-    this.trail = [];
-    this.exploded = false;
-    this.particles = [];
-    this.speedY = -8;
-  }
-  update() {
-    if (!this.exploded) {
-      this.trail.push({ x: this.x, y: this.y });
-      if (this.trail.length > 150) this.trail.shift();
-      this.y += this.speedY;
-      if (this.y <= this.targetY) this.explode();
-    } else {
-      this.particles.forEach(p => p.update());
+  <!-- JS Features -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
-  }
-  draw() {
-    if (!this.exploded) {
-      fwCtx.beginPath();
-      fwCtx.moveTo(this.x, this.y);
-      fwCtx.lineTo(this.x, this.y + 1);
-      fwCtx.strokeStyle = "orange";
-      fwCtx.stroke();
 
-      this.trail.forEach((t, i) => {
-        fwCtx.fillStyle = `rgba(255,150,0,${i / this.trail.length})`;
-        fwCtx.fillRect(t.x, t.y, 2, 2);
+    // ====== RAIN EFFECT ======
+    const canvas = document.getElementById("rain");
+    const ctx = canvas.getContext("2d");
+    let rainDrops = [];
+    let raining = false;
+    let flashOpacity = 0;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class RainDrop {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -canvas.height;
+        this.length = Math.random() * 25 + 15;
+        this.speed = Math.random() * 5 + 5;
+        this.thickness = Math.random() * 2;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(174,194,224,0.8)";
+        ctx.lineWidth = this.thickness;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.stroke();
+      }
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) this.reset();
+        this.draw();
+      }
+    }
+
+    for (let i = 0; i < 500; i++) rainDrops.push(new RainDrop());
+
+    function animateRain() {
+      if (!raining) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      rainDrops.forEach(drop => drop.update());
+      if (flashOpacity > 0) {
+        ctx.fillStyle = `rgba(255,255,255,${flashOpacity})`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        flashOpacity -= 0.3;
+      }
+      requestAnimationFrame(animateRain);
+    }
+
+    function randomLightning() {
+      if (raining && Math.random() < 0.1) flashOpacity = 0.1;
+      setTimeout(randomLightning, 200);
+    }
+    randomLightning();
+
+    document.addEventListener("keydown", e => {
+      if (e.ctrlKey && e.key === "m") {
+        raining = !raining;
+        if (raining) {
+          canvas.style.display = "block";
+          animateRain();
+        } else {
+          canvas.style.display = "none";
+        }
+      }
+    });
+    canvas.style.display = "none";
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.pointerEvents = "none";
+
+    // ====== FIREWORK EFFECT ======
+    const fireCanvas = document.getElementById("fireworkCanvas");
+    const fwCtx = fireCanvas.getContext("2d");
+    fireCanvas.style.position = "fixed";
+    fireCanvas.style.top = "0";
+    fireCanvas.style.left = "0";
+    fireCanvas.style.width = "100%";
+    fireCanvas.style.height = "100%";
+    fireCanvas.style.pointerEvents = "none";
+    fireCanvas.style.display = "none";
+    fireCanvas.width = window.innerWidth;
+    fireCanvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      fireCanvas.width = window.innerWidth;
+      fireCanvas.height = window.innerHeight;
+    });
+
+    let fireworks = [];
+    class Firework {
+      constructor(x, y) {
+        this.x = x;
+        this.y = fireCanvas.height;
+        this.targetY = y;
+        this.trail = [];
+        this.exploded = false;
+        this.particles = [];
+        this.speedY = -8;
+      }
+      update() {
+        if (!this.exploded) {
+          this.trail.push({ x: this.x, y: this.y });
+          if (this.trail.length > 150) this.trail.shift();
+          this.y += this.speedY;
+          if (this.y <= this.targetY) this.explode();
+        } else {
+          this.particles.forEach(p => p.update());
+        }
+      }
+      draw() {
+        if (!this.exploded) {
+          fwCtx.beginPath();
+          fwCtx.moveTo(this.x, this.y);
+          fwCtx.lineTo(this.x, this.y + 1);
+          fwCtx.strokeStyle = "orange";
+          fwCtx.stroke();
+        } else {
+          this.particles.forEach(p => p.draw());
+        }
+      }
+      explode() {
+        this.exploded = true;
+        for (let i = 0; i < 200; i++) {
+          this.particles.push(new Particle(this.x, this.y));
+        }
+      }
+    }
+    class Particle {
+      constructor(x, y) {
+        this.x = x; this.y = y;
+        this.speedX = (Math.random() - 0.5) * 6;
+        this.speedY = (Math.random() - 0.5) * 6;
+        this.size = Math.random() * 5 + 2;
+        this.life = 100;
+        this.color = `hsl(${Math.random() * 360},100%,50%)`;
+      }
+      update() {
+        this.x += this.speedX; this.y += this.speedY;
+        this.speedY += 0.05; this.life--;
+      }
+      draw() {
+        fwCtx.beginPath();
+        fwCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        fwCtx.fillStyle = this.color;
+        fwCtx.fill();
+      }
+    }
+
+    function animate() {
+      fwCtx.clearRect(0, 0, fireCanvas.width, fireCanvas.height);
+      fireworks.forEach((fw, i) => {
+        fw.update(); fw.draw();
+        if (fw.exploded && fw.particles.every(p => p.life <= 0)) fireworks.splice(i, 1);
       });
-    } else {
-      this.particles.forEach(p => p.draw());
+      requestAnimationFrame(animate);
     }
-  }
-  explode() {
-    this.exploded = true;
-    for (let i = 0; i < 230; i++) {
-      this.particles.push(new Particle(this.x, this.y));
-    }
-  }
-}
 
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.speedX = (Math.random() - 0.5) * 6;
-    this.speedY = (Math.random() - 0.5) * 6;
-    this.size = Math.random() * 5 + 2;
-    this.life = 100;
-    this.color = `hsl(${Math.random() * 360},100%,50%)`;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.speedY += 0.05;
-    this.life--;
-  }
-  draw() {
-    fwCtx.beginPath();
-    fwCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    fwCtx.fillStyle = this.color;
-    fwCtx.fill();
-  }
-}
+    document.addEventListener("keydown", e => {
+      if (e.ctrlKey && e.key.toLowerCase() === "b") {
+        fireCanvas.style.display = "block";
+        fireworks.push(new Firework(
+          Math.random() * fireCanvas.width,
+          Math.random() * fireCanvas.height / 2
+        ));
+        if (fireworks.length === 3) animate();
+      }
+    });
+  </script>
 
-function animate() {
-  fwCtx.fillStyle = "rgba(0,0,0,0.2)";
-  fwCtx.clearRect(0, 0, fireCanvas.width, fireCanvas.height);
+<!-- Orca Animation -->
 
 
-  fireworks.forEach((fw, i) => {
-    fw.update();
-    fw.draw();
-    if (fw.exploded && fw.particles.every(p => p.life <= 0)) {
-      fireworks.splice(i, 1);
-    }
-  });
 
-  requestAnimationFrame(animate);
-}
-
-// Ctrl+B → launch firework
-document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.key.toLowerCase() === "b") {
-    fireCanvas.style.display = "block";
-    fireworks.push(new Firework(
-      Math.random() * fireCanvas.width,
-      Math.random() * fireCanvas.height / 2
-    ));
-    if (fireworks.length === 3) animate();
-  }
-});
+<script>
+setInterval(() => {
+  const text = document.querySelector('.whale-text');
+  text.style.opacity = 1;
+  setTimeout(() => text.style.opacity = 0, 3000);
+}, 15000);
 </script>
 
 

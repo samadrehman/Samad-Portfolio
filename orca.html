@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orca Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #021020, #022a40);
+    }
+    canvas {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;
+    }
+    .orca-text {
+      position: fixed;
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-family: "Poppins", sans-serif;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      pointer-events: none;
+      z-index: 10;
+      transition: transform 0.2s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="orcaCanvas"></canvas>
+  <div class="orca-text" id="orcaText">I’m watching 👀</div>
+
+  <script>
+    const canvas = document.getElementById("orcaCanvas");
+    const ctx = canvas.getContext("2d");
+    const text = document.getElementById("orcaText");
+    let width, height;
+    let t = 0;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // Orca properties
+    const orca = {
+      x: width / 2,
+      y: height / 2,
+      size: 80,
+      speed: 1.2,
+      angle: 0,
+      direction: 1,
+    };
+
+    function drawOrca(x, y, size, angle) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+
+      // body
+      ctx.beginPath();
+      ctx.ellipse(0, 0, size, size / 3, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+
+      // white belly
+      ctx.beginPath();
+      ctx.ellipse(size * 0.1, size * 0.1, size * 0.6, size * 0.15, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+
+      // dorsal fin
+      ctx.beginPath();
+      ctx.moveTo(0, -size / 3);
+      ctx.lineTo(size / 4, -size);
+      ctx.lineTo(size / 2, -size / 3);
+      ctx.closePath();
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+
+      // tail
+      ctx.save();
+      ctx.translate(-size, 0);
+      const tailSwing = Math.sin(t * 0.15) * 0.3;
+      ctx.rotate(tailSwing);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(-size / 3, -size / 4);
+      ctx.lineTo(-size / 3, size / 4);
+      ctx.closePath();
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      ctx.restore();
+
+      // white eye patch
+      ctx.beginPath();
+      ctx.ellipse(size / 3, -size / 6, size / 8, size / 10, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      t += 1;
+
+      // move orca
+      orca.x += orca.speed * orca.direction;
+      orca.y = height / 2 + Math.sin(t * 0.02) * 100;
+
+      // reverse at edges
+      if (orca.x > width - 100) {
+        orca.direction = -1;
+      } else if (orca.x < 100) {
+        orca.direction = 1;
+      }
+
+      // facing direction
+      orca.angle = orca.direction === 1 ? Math.sin(t * 0.05) * 0.2 : Math.PI + Math.sin(t * 0.05) * 0.2;
+
+      // draw whale
+      drawOrca(orca.x, orca.y, orca.size, orca.angle);
+
+      // update text position
+      text.style.left = orca.x + "px";
+      text.style.top = orca.y - 120 + "px";
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
