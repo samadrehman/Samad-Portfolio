@@ -35,6 +35,30 @@
 
   <canvas id="orcaCanvas"></canvas>
 <div class="watching-text">I’m watching 🐋</div>
+<canvas id="batsCanvas"></canvas>
+<section class="github-projects">
+  <h2>GitHub Projects</h2>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>FLY GAME</h3>
+      <p>A real-time multiplayer 3D aircraft combat game built with Three.js and Node.js..</p>
+      <a href="https://github.com/samadrehman/FLY-GAME-" target="_blank" class="btn-primary">View Code</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Customer Segmentation Dashboard</h3>
+      <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets. </p>
+      <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
+    </div>
+
+    <div class="project-card">
+      <h3>AI Sentiment-Based Text Generator</h3>
+      <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
+      <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
+    </div>
+  </div>
+</section>
 
   <main class="container">
     <!-- LEFT SIDE -->
@@ -87,7 +111,11 @@
         </div>
       </div>
 
-    
+    <div class="halloween-banner">
+  🎃 Happy Halloween — Stay spooky & keep coding 👻
+</div>
+
+
 
   <!-- Rain + Fireworks Canvas -->
   <canvas id="rain"></canvas>
@@ -285,6 +313,80 @@ setInterval(() => {
 }, 15000);
 </script>
 
+<script>
+const batCanvas = document.getElementById("batsCanvas");
+const batCtx = batCanvas.getContext("2d");
+
+function resizeBatsCanvas() {
+  batCanvas.width = window.innerWidth;
+  batCanvas.height = 160;
+}
+resizeBatsCanvas();
+window.addEventListener("resize", resizeBatsCanvas);
+
+class Bat {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * batCanvas.width;
+    this.y = Math.random() * batCanvas.height;
+    this.size = Math.random() * 20 + 20;
+    this.speed = Math.random() * 0.8 + 0.3;
+    this.wingAngle = 0;
+    this.wingSpeed = Math.random() * 0.2 + 0.1;
+    this.direction = Math.random() < 0.5 ? 1 : -1;
+  }
+
+  draw() {
+    const ctx = batCtx;
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.scale(this.direction, 1);
+    ctx.beginPath();
+
+    // Body
+    ctx.ellipse(0, 0, this.size * 0.2, this.size * 0.4, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    // Wings
+    const wingFlap = Math.sin(this.wingAngle) * 0.5;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(-this.size * 0.8, -this.size * wingFlap, -this.size, 0);
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(this.size * 0.8, -this.size * wingFlap, this.size, 0);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  update() {
+    this.x += this.speed * this.direction;
+    this.wingAngle += this.wingSpeed;
+
+    if (this.x > batCanvas.width + 50 || this.x < -50) {
+      this.reset();
+      this.direction *= -1; // change direction when resetting
+    }
+
+    this.draw();
+  }
+}
+
+const bats = Array.from({ length: 8 }, () => new Bat());
+
+function animateBats() {
+  batCtx.clearRect(0, 0, batCanvas.width, batCanvas.height);
+  bats.forEach(b => b.update());
+  requestAnimationFrame(animateBats);
+}
+animateBats();
+</script>
 
 </body>
 </html>

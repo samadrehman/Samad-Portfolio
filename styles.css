@@ -1,271 +1,368 @@
-/* ===============================
-   SAMAD REHMAN PORTFOLIO STYLE
-   Premium Light/Dark UI
-   =============================== */
-
-/* ---------- Root Theme Colors ---------- */
+/* ====== GLOBAL STYLE ====== */
 :root {
-  --bg: #8497be;
-  --text: #000000;
-  --card: #ffffff;
-  --accent: #445464;
-  --accent-hover: #005fcc;
-  --border: #191b21;
-  --shadow: rgba(255, 255, 255, 0.08);
+  --bg-light: #faf5f5;
+  --text-light: #000000;
+  --accent: #7f3f3f; /* soft blue accent */
+  --accent-hover: #8e9bc9;
+  --border-color: #e5e5e5;
+  --card-bg: #f8f9fa;
+  --transition: all 0.3s ease;
 }
 
-/* ---------- Dark Mode Variables ---------- */
-body.dark-mode {
-  --bg: #0f1115;
-  --text: #ffffff;
-  --card: #000000;
-  --accent: #5ea8ff;
-  --accent-hover: #91c9ff;
-  --border: #333;
-  --shadow: rgba(255, 255, 255, 0.05);
-}
 
-/* ---------- Global ---------- */
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", "Segoe UI", sans-serif;
+  font-family: "Inter", "Poppins", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  scrollbar-width: thin;
+  color: #000000;
   margin: 0;
   padding: 0;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: var(--transition);
+  line-height: 1.6;
 }
 
-/* ---------- Layout Grid ---------- */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  padding: 4rem 10%;
+/* ====== HEADER ====== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: rgba(193, 177, 188, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
-/* ---------- Top Navigation Buttons ---------- */
-nav {
-  position: fixed;
-  top: 20px;
-  right: 30px;
+.site-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+/* ====== NAVIGATION ====== */
+.social-buttons {
   display: flex;
   align-items: center;
-  gap: 12px;
-  z-index: 1000;
+  gap: 1rem;
 }
 
-nav button {
-  background: var(--card);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  padding: 8px 10px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px var(--shadow);
-  transition: all 0.3s ease;
+.social-buttons a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
 }
 
-nav button:hover {
-  background: var(--accent);
-  color: rgb(255, 254, 254);
-  transform: translateY(-2px);
+.social-buttons a:hover {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
+/* Dark mode toggle on right */
 .dark-toggle {
   background: var(--accent);
   color: white;
-  font-weight: bold;
+  border: none;
   border-radius: 50%;
-  padding: 8px 10px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 1.1rem;
+  transition: var(--transition);
 }
 
 .dark-toggle:hover {
   background: var(--accent-hover);
 }
 
-/* ---------- Left Section: Profile & Tech ---------- */
-.left-panel {
+/* ====== MAIN CONTAINER ====== */
+.container {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem 4rem;
+  gap: 3rem;
 }
 
+.left-section,
+.right-section {
+  flex: 1;
+}
+
+/* ====== PROFILE SECTION ====== */
 .profile {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px var(--shadow);
-  border: 1px solid var(--border);
-  text-align: center;
-}
-
-
-
-.profile h1 {
-  margin: 0.5rem 0;
-  font-size: 1.8rem;
-}
-
-.profile p {
-  margin: 0.2rem 0;
-  color: #555;
-}
-
-.tech-stack {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px var(--shadow);
-  border: 1px solid var(--border);
-}
-
-.tech-stack h2 {
-  margin-top: 0;
-}
-
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tech-tags span {
-  background: var(--accent);
-  color: white;
-  padding: 0.3rem 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  font-size: 0.9rem;
-}
-
-/* ---------- Right Section: Certificates & Experience ---------- */
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.section {
-  background: var(--card);
   padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px var(--shadow);
-  border: 1px solid var(--border);
+  transition: var(--transition);
 }
 
-.section h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+.profile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
 }
 
-.highlight img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 3px 8px var(--shadow);
-}
-
-.highlight img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px var(--shadow);
-}
-
-/* ---------- Projects & Experience ---------- */
-.project, .experience {
-  margin-bottom: 1rem;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-.project:hover, .experience:hover {
-  background: rgba(159, 171, 183, 0.1);
-}
-
-.code-link {
+.profile a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
 }
 
-.code-link:hover {
-  color: var(--accent-hover);
+.profile a:hover {
   text-decoration: underline;
 }
 
-/* ---------- Responsiveness ---------- */
-@media (max-width: 900px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-  }
-
-  nav {
-    right: 15px;
-  }
-}
-
-/* ---------- Button Container ---------- */
+/* Buttons under profile */
 .profile-buttons {
   display: flex;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-/* ---------- Primary Button (Subscribe) ---------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  padding: 10px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 10px var(--shadow);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px var(--shadow);
 }
 
-/* ---------- Secondary Button (My Story) ---------- */
 .btn-secondary {
-  background: transparent;
+  background: #e9ecff;
   color: var(--accent);
-  border: 2px solid var(--accent);
-  padding: 10px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
   background: var(--accent);
   color: #fff;
-  transform: translateY(-2px);
 }
 
-/* ---------- Dark Mode Tweaks ---------- */
-body.dark-mode .btn-primary {
-  background: var(--accent);
-  color: white;
+/* ====== TECH STACK ====== */
+.tech-stack {
+  margin-top: 2rem;
+}
+
+.tech-stack h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.tech-stack li {
+  list-style: none;
+  background: var(--card-bg);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* ====== CERTIFICATES ====== */
+.certificates {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.certificates:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.certificate-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.certificate-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+/* ====== DARK MODE ====== */
+body.dark-mode {
+  --bg-light: #0f1116;
+  --text-light: #f2f2f2;
+  --accent: #6b8bff;
+  --accent-hover: #8fa7ff;
+  --card-bg: #1a1d25;
+  --border-color: #2b2e38;
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark-mode .top-bar {
+  background: rgba(15, 17, 22, 0.9);
+}
+
+body.dark-mode .social-buttons a:hover {
+  border-color: var(--accent);
 }
 
 body.dark-mode .btn-secondary {
+  background: #2d3245;
   color: var(--accent);
-  border-color: var(--accent);
 }
 
 body.dark-mode .btn-secondary:hover {
   background: var(--accent);
-  color: white;
+  color: #fff;
 }
 
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .social-buttons {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+}
+
+.halloween-banner {
+  text-align: center;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff8c00, #b347ff);
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  animation: glowBanner 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowBanner {
+  from { box-shadow: 0 0 8px #ff8c00; }
+  to { box-shadow: 0 0 16px #b347ff; }
+}
+
+body.dark-mode .halloween-banner {
+  background: linear-gradient(90deg, #b347ff, #ff8c00);
+}
+/* Bats Canvas Styling */
+#batsCanvas {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  display: block;
+  background: transparent;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Optional - make bats glow subtly in dark mode */
+body.dark-mode #batsCanvas {
+  filter: drop-shadow(0 0 6px rgba(255, 140, 0, 0.4));
+}
+/* GitHub Projects Section */
+.github-projects {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.github-projects h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Buttons for project cards */
+.project-card .btn-primary {
+  display: inline-block;
+  background: #6b4ce6;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.project-card .btn-primary:hover {
+  background: #5737d6;
+}
+
+/* Dark mode */
+body.dark-mode .project-card {
+  background: rgba(40, 40, 40, 0.9);
+  border: 1px solid #333;
+}
+
+body.dark-mode .project-card h3 {
+  color: #e4e4e4;
+}
+
+body.dark-mode .project-card p {
+  color: #bbb;
+}
+
+body.dark-mode .project-card .btn-primary {
+  background: #0099ff;
+}
