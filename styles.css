@@ -11,13 +11,14 @@
 
 
 body {
-  font-family: "Inter", "Poppins", sans-serif;
-  background: var(--bg-light);
+  background: linear-gradient(135deg, rgba(91, 100, 135, 0.7) 0%, rgba(29, 33, 51, 0.4) 100%);
+  backdrop-filter: blur(20px);
   color: var(--text-light);
   scrollbar-width: thin;
+  font-family: "Poppins", Arial, sans-serif;
   color: #000000;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 10px;
   transition: var(--transition);
   line-height: 1.6;
 }
@@ -30,17 +31,16 @@ body {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
   position: sticky;
-  top: 0;
-  background: rgba(193, 177, 188, 0.9);
+  top: 0px;
+  background: rgba(197, 220, 237, 0.9);
   backdrop-filter: blur(10px);
   z-index: 100;
 }
 
 .site-title {
   font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--text-light);
+  font-weight: 700;
+  color: var(--accent);
 }
 
 /* ====== NAVIGATION ====== */
@@ -101,6 +101,9 @@ body {
   border-radius: 12px;
   padding: 2rem;
   transition: var(--transition);
+  margin-top: 100px;
+  margin-bottom: 50px;
+
 }
 
 .profile:hover {
@@ -288,14 +291,14 @@ body.dark-mode #batsCanvas {
 /* GitHub Projects Section */
 .github-projects {
   text-align: center;
-  margin: 60px auto;
-  max-width: 1000px;
-  padding: 20px;
+  margin: 0px ;
+  max-width: 100000px;
+  padding: 0px;
 }
 
 .github-projects h2 {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
   color: #222;
 }
 
@@ -303,7 +306,9 @@ body.dark-mode #batsCanvas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .project-card {
@@ -366,3 +371,4 @@ body.dark-mode .project-card p {
 body.dark-mode .project-card .btn-primary {
   background: #0099ff;
 }
+
