@@ -1,0 +1,436 @@
+/* ===========================
+   LIGHT, COLORFUL GLASSMORPH
+   Animated pastel gradient + Apple-like glass
+   Keeps all HTML & JS intact (Halloween, rain, fireworks, bats)
+   ===========================*/
+
+/* ---------- THEME / VARIABLES ---------- */
+:root{
+  --bg-1: #f6fbff;
+  --bg-2: #fff7fb;
+  --glass: rgba(255,255,255,0.6);
+  --glass-strong: rgba(255,255,255,0.85);
+  --card-shadow: 0 10px 30px rgba(20, 20, 40, 0.08);
+  --accent-a: #7f3fff;   /* purple */
+  --accent-b: #ff6b6b;   /* coral */
+  --accent-c: #00c2ff;   /* cyan */
+  --muted: #444652;
+  --radius: 16px;
+  --transition: 250ms cubic-bezier(.21,.9,.32,1);
+}
+
+/* ---------- Animated pastel background ---------- */
+/* subtle slow-moving multi-color gradient */
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color:var(--muted);
+  background: linear-gradient(120deg, rgba(255,234,240,1) 0%, rgba(250,250,255,1) 30%, rgba(240,255,255,1) 60%, rgba(255,245,240,1) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 12s linear infinite;
+  min-height:100vh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* gradient animation */
+@keyframes gradientShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* make main content sit centered with breathing room */
+main, .github-projects {
+  max-width:1100px;
+  margin: 0 auto;
+}
+
+/* ---------- TOP BAR / NAV ---------- */
+.top-bar{
+  position: sticky;
+  top:0;
+  z-index:120;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+  backdrop-filter: blur(8px) saturate(120%);
+  border-bottom: 1px solid rgba(70,70,90,0.06);
+  box-shadow: 0 6px 18px rgba(25, 30, 50, 0.04);
+}
+
+/* site title on left */
+.site-title{
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--muted);
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* stylized small logo circle */
+.site-title::before{
+  content:"";
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
+  box-shadow: 0 6px 18px rgba(127,63,255,0.12);
+}
+
+/* nav on top-right - compact pill buttons */
+.social-buttons{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* top-right links styled as small glass pills */
+.social-buttons a{
+  padding:10px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.9rem;
+  color:var(--muted);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+  border: 1px solid rgba(100,100,120,0.06);
+  box-shadow: 0 6px 18px rgba(20, 20, 40, 0.04);
+  transition: all var(--transition);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* tiny colorful icon circle to left of label */
+.social-buttons a::before{
+  content:"";
+  width:10px;height:10px;border-radius:50%;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  box-shadow: 0 0 8px rgba(255,120,180,0.12);
+}
+
+/* hover pop + colored glow */
+.social-buttons a:hover{
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(127,63,255,0.12);
+  color: #222;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(250,250,255,0.95));
+  border-color: rgba(127,63,255,0.12);
+}
+
+/* dark-mode toggle as small pill too */
+.dark-toggle{
+  width:40px;height:40px;border-radius:12px;border:none;
+  display:inline-grid;place-items:center;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(250,250,255,0.9));
+  box-shadow: 0 6px 18px rgba(30,30,60,0.05);
+  cursor:pointer;
+  transition: all var(--transition);
+}
+
+/* ---------- HERO / PROFILE CARD (center prominent) ---------- */
+/* we keep your .profile element in HTML — style it as big hero card */
+.profile{
+  margin:48px auto 18px auto;
+  padding:34px;
+  border-radius:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(90,90,120,0.04);
+  max-width:920px;
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+/* inside hero - make intro text larger and friendlier */
+.profile .intro{
+  font-size:1.05rem;
+  color:var(--muted);
+  margin:0;
+  line-height:1.55;
+}
+
+/* highlight the email link with a colorful pill */
+.profile a{
+  color: #121212;
+  font-weight:700;
+  text-decoration:none;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  padding:6px 10px;border-radius:10px;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+/* profile buttons grouped */
+.profile-buttons{
+  margin-top:14px;
+}
+
+/* primary CTA - bright gradient */
+.btn-primary{
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-c));
+  color:white;
+  padding:10px 16px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  border:none;
+  display:inline-block;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 8px 30px rgba(127,63,255,0.12);
+}
+.btn-primary:hover{ transform: translateY(-4px); box-shadow: 0 16px 40px rgba(127,63,255,0.16); }
+
+/* secondary CTA - subtle glass button */
+.btn-secondary{
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+  color:var(--muted);
+  padding:10px 16px;
+  border-radius:12px;
+  text-decoration:none;
+  border:1px solid rgba(100,100,120,0.06);
+  font-weight:600;
+  margin-left:10px;
+}
+.btn-secondary:hover{ transform: translateY(-3px); box-shadow: 0 10px 30px rgba(20,20,50,0.06); }
+
+/* ---------- TWO-COLUMN LAYOUT BELOW HERO ---------- */
+.container{
+  display:grid;
+  grid-template-columns: 1fr 380px;
+  gap:28px;
+  align-items:start;
+  padding: 0 24px 80px 24px;
+}
+
+/* left section (main) */
+.left-section{
+  display:block;
+}
+
+/* right column cards */
+.certificates{
+  padding:18px;
+  border-radius:16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
+  border: 1px solid rgba(80,80,100,0.04);
+  box-shadow: var(--card-shadow);
+}
+
+/* certificate item */
+.certificate-item{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.certificate-item img{ width:76px; height:76px; border-radius:12px; object-fit:cover; border:1px solid rgba(0,0,0,0.04); }
+
+/* tech-stack look */
+.tech-stack h2{ margin-top:24px; font-size:1.05rem; color:var(--muted); }
+.tech-stack li{
+  list-style:none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.87));
+  border-radius:10px;
+  padding:8px 10px;
+  align-items: center;
+  margin:8px 0;
+  border:1px solid rgba(80,80,100,0.04);
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* ---------- GITHUB PROJECTS (full-width, card grid) ---------- */
+.github-projects{
+  margin-top:12px;
+  padding:32px 18px 56px;
+}
+.github-projects h2{
+  font-size:1.6rem;
+  margin-bottom:18px;
+  color:var(--muted);
+  display:flex; align-items:center; gap:12px;
+}
+
+/* project cards - colorful border accent on top */
+.project-grid{
+  display:flex; flex-wrap:wrap; gap:18px;
+}
+.project-card{
+  width:280px;
+  border-radius:14px;
+  padding:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));
+  border:1px solid rgba(80,80,120,0.04);
+  box-shadow: 0 8px 30px rgba(20,20,40,0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position:relative;
+  overflow:hidden;
+}
+.project-card::after{
+  content:"";
+  position:absolute;
+  left:0; top:0; height:6px; width:64%;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b), var(--accent-c));
+  border-bottom-right-radius:12px;
+}
+.project-card h3{ margin:8px 0 10px; color: #232323; font-size:1.05rem; }
+.project-card p{ color:#4b4b5a; font-size:0.95rem; line-height:1.45; }
+.project-card .btn-primary{
+  margin-top:8px;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:0.9rem;
+  box-shadow:none;
+}
+.project-card:hover{ transform: translateY(-8px); box-shadow: 0 20px 40px rgba(80,80,120,0.06); }
+
+/* ---------- HALLOWEEN BANNER ---------- */
+.halloween-banner{
+  margin-top:18px;
+  display:block;
+  border-radius:12px;
+  padding:12px;
+  font-weight:700;
+  color:#fff;
+  background: linear-gradient(90deg, #ff8c00, #b347ff);
+  text-align:center;
+  box-shadow: 0 10px 30px rgba(179,71,255,0.12);
+}
+
+/* ---------- CANVAS ELEMENTS adjustments ---------- */
+/* rain & fireworks & bats should overlay quietly - pointer-events none */
+#rain, #fireworkCanvas, #batsCanvas{
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index: 60; /* above content for fireworks/rain; but below top-bar (120) */
+  pointer-events:none;
+}
+
+/* put bat canvas lower in stacking so it doesn't block fireworks */
+#batsCanvas{ height:160px; z-index:65; top:68px; } /* below top-bar */
+#fireworkCanvas{ z-index:80; }
+#rain{ z-index:70; }
+
+/* make sure main content stacks above canvas (so text remains clickable) */
+main, .container, .github-projects{ position: relative; z-index: 100; }
+
+/* ---------- SMALL TOUCHES ---------- */
+.project-card h3::first-letter, .profile .intro::first-letter{ color:var(--accent-a); font-weight:900; }
+a { color:inherit; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1000px){
+  .container{ grid-template-columns: 1fr; padding:0 18px 48px; }
+  #batsCanvas{ display:block; top:120px; }
+  .site-title::before{ width:38px;height:38px; }
+  .social-buttons a{ padding:8px 12px; font-size:0.85rem; }
+  .profile{ padding:20px; border-radius:14px; }
+  .project-card{ width:100%; }
+}
+@media (max-width:520px){
+  .top-bar{ padding:12px 14px; }
+  .social-buttons{ gap:8px; }
+  .site-title{ font-size:1.1rem; }
+  .profile .intro{ font-size:0.98rem; }
+}
+body.dark-mode {
+  background: linear-gradient(120deg, #1e1e2f, #2c2c3e);
+  color: #f5f5f5;
+}
+
+body.dark-mode .top-bar {
+  background: rgba(30, 30, 50, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .social-buttons a {
+  background: linear-gradient(135deg, #2a2a3a, #3a3a4a);
+  color: #ddd;
+}
+
+body.dark-mode .social-buttons a:hover {
+  background: linear-gradient(135deg, #a86bff, #ff8ae2);
+  color: white;
+}
+
+body.dark-mode .btn-primary {
+  background: linear-gradient(135deg, #a86bff, #ff8ae2);
+  box-shadow: 0 6px 20px rgba(168, 107, 255, 0.4);
+}
+
+body.dark-mode .profile, 
+body.dark-mode .certificates, 
+body.dark-mode .project-card {
+  background: rgba(30, 30, 40, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Responsive: tablets and smaller ---------- */
+@media (max-width: 900px) {
+  /* Stack two-column grid into single column */
+  .container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* Make profile/card widths full-width and centered */
+  .profile, .certificates, .project-card, .github-projects {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Navigation becomes compact pills (wrap) */
+  .social-buttons {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  /* Slightly smaller hero spacing */
+  .profile { padding: 20px; margin: 30px 12px; }
+
+  /* Reduce project-card width */
+  .project-card { width: 100%; }
+
+  /* Reduce blob size and move up */
+  .gradient-blob, .floating-blob, .blob {
+    width: 320px;
+    height: 320px;
+    filter: blur(120px);
+    top: 15%;
+    left: 50%;
+  }
+}
+
+/* ---------- Responsive: phones ---------- */
+@media (max-width: 520px) {
+  .top-bar { padding: 10px 14px; }
+  .site-title { font-size: 1.05rem; }
+
+  /* Make nav compact — we show only icons/short labels */
+  .social-buttons a { padding: 8px 10px; font-size: 0.86rem; }
+
+  /* Buttons & touch targets must be larger */
+  .btn-primary, .btn-secondary, .dark-toggle {
+    padding: 12px 18px;
+    min-width: 44px;
+  }
+
+  /* Reduce hero typography */
+  .profile .intro { font-size: 0.96rem; }
+
+  /* Disable heavy shadows on mobile for perf/battery */
+  .profile, .project-card, .certificates {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+
+  /* Make canvas height trimmed so bats don't overlap */
+  #batsCanvas { height: 120px; top: 56px; }
+
+  /* Hide any extra decorative text that crowds */
+  .github-projects h2::after { display: none; }
+}

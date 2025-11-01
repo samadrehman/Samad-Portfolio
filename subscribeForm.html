@@ -1,0 +1,66 @@
+<form id="subscribeForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <button type="submit">Subscribe</button>
+</form>
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(147, 78, 150);
+    border-radius: 15px;
+    width: 300px;
+    height: 100px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 260px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  input, button {
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+</style>
+
+<script>
+document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new URLSearchParams(new FormData(form));
+
+    const res = await fetch("https://script.google.com/macros/s/AKfycbz8RJQtabEjCBcbdnAuf-o2Bfllg0lRV2HLvas2o1XhSl_mBZQ_-6lHy-azYs4t6ZYbGQ/exec", {
+        method: "POST",
+        body: data
+    });
+    const text = await res.text();
+    alert(text); // shows "Success" or "Error"
+});
+</script>
+
+<p id="location"></p>
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+

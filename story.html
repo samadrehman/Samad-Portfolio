@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Stories | Snowy & Friends</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 30px;
+      background-color: #ffcc00;
+    }
+
+    button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #555; }
+
+    #storySection {
+      display: none;
+      padding: 50px 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Main Story (Snowy) */
+    .main-story {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .main-story img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ffcc00;
+      margin: 20px 0;
+    }
+
+    .main-story h2 { color: #444; }
+
+    /* Other Stories */
+    .other-stories {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .story-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .story-card:hover { transform: translateY(-5px); }
+
+    .story-card img {
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .story-card h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #444;
+    }
+
+    .story-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My World 💛</h1>
+    <button onclick="showStorySection()">📖 Story</button>
+  </header>
+
+  <section id="storySection">
+    <!-- Snowy's Story (Main) -->
+    <div class="main-story">
+      <h2>🌸 Snowy’s Story 🌸</h2>
+      <p>
+        Once upon a time, there was a cheerful little friend named <strong>Snowy</strong>.
+        Snowy wasn't big or loud — but her heart was full of laughter and kindness.
+        Every morning, she would bring joy just by being around.
+      </p>
+      <p>
+        On Sunday afternoons, she wasn’t feeling well, so I visited the vet for her checkup.
+        Then the doctor said only a few hours  were left for her to live.
+        The exact time was <strong>2:12 PM</strong> — and I spent every minute with her until <strong>4:13 PM</strong>.
+        Then, she slowly closed her eyes forever.  
+        But in my heart, Snowy is still here — wagging her tail in sunshine, forever my little friend. 🕊️
+
+        <strong>Thank you for being my friend, Snowy.</strong>
+      </p>
+    </div>
+
+    <!-- Other Stories (Bottom Left and Right) 
+    <div class="other-stories">
+      <div class="story-card">
+        <img src="https://placekitten.com/250/200" alt="Friend Story 1">
+        <h3> Friend</h3>
+        <p>A story about my very first companion, who taught me what true friendship means.</p>
+      </div>
+
+      <div class="story-card">
+        <img src="https://placekitten.com/251/200" alt="Friend Story 2">
+        <h3>A Walk to Remember</h3>
+        <p>One sunny evening, a simple walk became a memory I’ll never forget.</p>
+      </div>
+    </div>
+  </section>
+-->
+  <script>
+    function showStorySection() {
+      const section = document.getElementById("storySection");
+      section.style.display = section.style.display === "block" ? "none" : "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
