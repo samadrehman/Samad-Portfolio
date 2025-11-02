@@ -98,7 +98,7 @@ main, .github-projects {
   font-weight:600;
   font-size:0.9rem;
   color:var(--muted);
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+  background: linear-gradient(180deg, rgba(30, 136, 175, 0.85), rgba(255,255,255,0.65));
   border: 1px solid rgba(100,100,120,0.06);
   box-shadow: 0 6px 18px rgba(20, 20, 40, 0.04);
   transition: all var(--transition);
@@ -128,7 +128,7 @@ main, .github-projects {
 .dark-toggle{
   width:40px;height:40px;border-radius:12px;border:none;
   display:inline-grid;place-items:center;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(250,250,255,0.9));
+  background: linear-gradient(90deg, rgba(40, 144, 146, 0.9), rgba(250,250,255,0.9));
   box-shadow: 0 6px 18px rgba(30,30,60,0.05);
   cursor:pointer;
   transition: all var(--transition);
@@ -246,9 +246,9 @@ main, .github-projects {
 }
 .github-projects h2{
   font-size:1.6rem;
-  margin-bottom:18px;
+  margin-bottom:10px;
   color:var(--muted);
-  display:flex; align-items:center; gap:12px;
+  display:flex; align-items:right; gap:12px;
 }
 
 /* project cards - colorful border accent on top */
@@ -257,8 +257,8 @@ main, .github-projects {
 }
 .project-card{
   width:280px;
-  border-radius:14px;
-  padding:18px;
+  border-radius:4px;
+  padding: 10px;
   background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));
   border:1px solid rgba(80,80,120,0.04);
   box-shadow: 0 8px 30px rgba(20,20,40,0.04);
