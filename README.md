@@ -1,4 +1,4 @@
-# 🌈 Samad ur Rehman — Developer Portfolio
+#  Samad ur Rehman — Developer Portfolio
 
 Welcome to my personal portfolio website — a creative, colorful, and Apple-inspired space where I showcase my projects, certificates, and journey as a developer.
 
@@ -7,7 +7,6 @@ Welcome to my personal portfolio website — a creative, colorful, and Apple-ins
 
 
 Built with pure **HTML, CSS, and JavaScript**, this site features:
-- 🎃 Halloween & Festival Themes  
 - 🌧️ Rain and Firework animations  
 - 🦇 Flying bats for fun headers  
 - 🌙 Dark-mode toggle  
