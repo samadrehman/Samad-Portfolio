@@ -81,6 +81,7 @@
         
         if (text.includes("Success")) {
           msg.textContent = "✅ Hey, you subscribed to our newsletter! Now you’ll get weekly updates about jobs and internships.";
+          msg.style.color = "#5c2e91";
           form.reset();
         } else {
           msg.textContent = "❌ Subscription failed: " + text;
