@@ -66,6 +66,53 @@
 
 <canvas id="batsCanvas"></canvas>
 
+  <div class="subscribeForm">
+  <form id="subscribeForm">
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <label>Full Name:</label>
+    <input type="text" name="name" id="name" placeholder="Your Name" required>
+
+    <label>Email Address:</label>
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
+
+    <button type="submit">Subscribe</button>
+
+    <div class="msg" id="msg"></div>
+  </form>
+</div>
+
+
+  <script>
+    const form = document.getElementById('subscribeForm');
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = "Subscribing...";
+      
+      const formData = new FormData(form);
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbzpTjKhyOzUJbrpzKJUufqedfAqlLBiaZ4RazFpYlnenX6y5RZdafJZvdIBpnJOjeH9/exec", {
+          method: "POST",
+          body: formData
+        });
+        const text = await response.text();
+        
+        if (text.includes("Success")) {
+          msg.textContent = "✅ Hey, you subscribed to our newsletter! Now you’ll get weekly updates about jobs and internships.";
+          msg.style.color = "#5c2e91";
+          form.reset();
+        } else {
+          msg.textContent = "❌ Subscription failed: " + text;
+        }
+      } catch (err) {
+        msg.textContent = "Error: " + err.message;
+      }
+    });
+  </script>
+
+
 <section class="github-projects">
   <button class="dropdown-toggle">📂 Show GitHub Projects</button>
   <div class="project-content">
@@ -118,9 +165,8 @@
           Student based in Bhopal, India. <br />
           I build projects that solve my own problems. Focused on design, speed, and user experience.<br />
           College: Government Hamidia Arts & Commerce College. <br /> <br />
-          <a href="mailto:samadrehman550@gmail.com" target="_blank class="btn-primary "> samadrehman550@gmail.com</a> <br />
+          <a href="mailto:samadrehman550@gmail.com" target="_blank" class="btn-primary"> samadrehman550@gmail.com</a> <br />
           <div class="profile-buttons">
-  <a href="subscribeForm.html" target="_blank" class="btn-primary">Subscribe</a>
   <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
 </div>
 

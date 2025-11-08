@@ -474,3 +474,43 @@ body.dark-mode .project-card {
     opacity: 1;
     transform: translateY(0);
 }
+.subscribeForm{
+  font-family : Arial, sans-serif;
+  background-color: #decfcf;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+h2{
+  text-align:center;
+  color:#5c2e91;
+}
+input,button{
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+button{
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-c));
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+button:hover{
+  background: linear-gradient(90deg, var(--accent-c), var(--accent-a));
+}
+.success-message{
+  color:green;
+  font-weight:600;
+  margin-top:10px;
+  }
+.error-message{
+  color:red;
+  font-weight:600;
+  margin-top:10px;
+} 
+
+/* End of styles.css */
