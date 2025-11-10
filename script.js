@@ -1,4 +1,4 @@
-const API_URL = 'https://script.google.com/macros/s/AKfycby8XBVlPLiTdBid1jxRQpkl71i7aWlPmgBbGpWCYcRjK-190sU2obHKkVZRyxyzMpK4YA/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbwJzt2Z23ol0_dp2skDNy-lD-gCqOInF4NU7MKDxawFdLRbgv1fcOXAPlcsPm-O1swN/exec';
 
 async function logVisitorIP() {
     try {
@@ -41,7 +41,7 @@ document.getElementById('subscribeForm').addEventListener('submit', async (e) =>
         data.append("latitude", latitude);
         data.append("longitude", longitude);
 
-        const res = await fetch("https://script.google.com/macros/s/AKfycbwOMDe4q70jFjA-MCO4jB8DvN0mQIt3MrniZ_9t3pknjb-gePXBvBrCQv_6JeZsPfEQpA/exec", {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwJzt2Z23ol0_dp2skDNy-lD-gCqOInF4NU7MKDxawFdLRbgv1fcOXAPlcsPm-O1swN/exec", {
             method: "POST",
             body: data
         });

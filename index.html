@@ -65,8 +65,7 @@
 
 
 <canvas id="batsCanvas"></canvas>
-
-  <div class="subscribeForm">
+<div class="subscribeForm">
   <form id="subscribeForm">
     <h2>Subscribe to Our Newsletter</h2>
 
@@ -77,40 +76,51 @@
     <input type="email" name="email" id="email" placeholder="Your Email" required>
 
     <button type="submit">Subscribe</button>
+    <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'">View Newsletters</button>
 
     <div class="msg" id="msg"></div>
   </form>
 </div>
 
+<script>
+const SUBSCRIBE_URL = "https://script.google.com/macros/s/AKfycbxD0vmXOgERx4jJYiErBl2RrNYU7ao4S9Uc64X4ZxWcZgnFG1i2F1uNdsvrt5VzCQP_/exec";
 
-  <script>
-    const form = document.getElementById('subscribeForm');
-    const msg = document.getElementById('msg');
+document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.textContent = "Subscribing...";
-      
-      const formData = new FormData(form);
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzpTjKhyOzUJbrpzKJUufqedfAqlLBiaZ4RazFpYlnenX6y5RZdafJZvdIBpnJOjeH9/exec", {
-          method: "POST",
-          body: formData
-        });
-        const text = await response.text();
-        
-        if (text.includes("Success")) {
-          msg.textContent = "✅ Hey, you subscribed to our newsletter! Now you’ll get weekly updates about jobs and internships.";
-          msg.style.color = "#5c2e91";
-          form.reset();
-        } else {
-          msg.textContent = "❌ Subscription failed: " + text;
-        }
-      } catch (err) {
-        msg.textContent = "Error: " + err.message;
-      }
+  const email = document.getElementById("email").value.trim();       // fixed ID
+  const messageEl = document.getElementById("msg");                 // fixed ID
+
+  if (!email) {
+    messageEl.textContent = "Please enter a valid email.";
+    return;
+  }
+
+  const params = new URLSearchParams();
+  params.append("action", "subscribe");
+  params.append("email", email);
+
+  try {
+    const res = await fetch(SUBSCRIBE_URL, {
+      method: "POST",
+      body: params,
     });
-  </script>
+
+    const text = await res.text();
+    if (text.includes("Success")) {
+      messageEl.textContent = "✅ Thank you for subscribing!";
+      document.getElementById("subscribeForm").reset();
+    } else if (text.includes("Already subscribed")) {
+      messageEl.textContent = "⚠️ You are already subscribed.";
+    } else {
+      messageEl.textContent = "❌ Subscription failed. Try again later.";
+    }
+  } catch (err) {
+    console.error(err);
+    messageEl.textContent = "❌ Subscription failed. Try again later.";
+  }
+});
+</script>
 
 
 <section class="github-projects">
