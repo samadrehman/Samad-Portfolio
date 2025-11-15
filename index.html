@@ -3,42 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Samad ur Rehman | Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Samad ur Rehman — a passionate developer skilled in Python, Machine Learning, and Web Development. Explore my projects, certificates, and experiences." />
-  <meta name="keywords" content="Samad ur Rehman, portfolio, developer, Python, machine learning, JavaScript, GitHub, projects, web developer, Bhopal" />
-  <meta name="author" content="Samad ur Rehman" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://samadrehman.github.io/" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://samadrehman.github.io/sitemap.xml">
-
-
+  
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-
-  <!-- Google Fonts (Optimized) -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+  
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:title" content="Samad ur Rehman | Developer Portfolio" />
   <meta property="og:description" content="Explore my projects, certificates, and experience in ML, Python, and Web Dev." />
   <meta property="og:image" content="https://samadrehman.github.io/images/preview.jpg" />
   <meta property="og:url" content="https://samadrehman.github.io/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Samad ur Rehman | Developer Portfolio" />
-  <meta name="twitter:description" content="Explore my projects, certificates, and experience in ML, Python, and Web Dev." />
-  <meta name="twitter:image" content="https://samadrehman.github.io/images/preview.jpg" />
-
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://samadrehman.github.io/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://samadrehman.github.io/sitemap.xml">
+  
+  
+</head>
+<body>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ"></script>
   <script>
@@ -47,181 +37,162 @@
     gtag('js', new Date());
     gtag('config', 'G-STRPMP0TZQ');
   </script>
-</head>
 
-
-<body>
   <header class="top-bar">
     <h1 class="site-title">Samad ur Rehman</h1>
     <nav class="social-buttons">
       <a href="https://github.com/samadrehman" target="_blank">GitHub</a>
       <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">LeetCode</a>
       <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/samad-03b784387/" target="_blank">LinkedIn</a>
       <a href="game.html" target="_blank">Game</a>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="1.html" style="display:none;"></a>
+      <button class="dark-toggle" id="themeToggle">🌙</button>
     </nav>
   </header>
 
+  <canvas id="batsCanvas"></canvas>
 
-<canvas id="batsCanvas"></canvas>
-<div class="subscribeForm">
-  <form id="subscribeForm">
-    <h2>Subscribe to Our Newsletter</h2>
-
-    <label>Full Name:</label>
-    <input type="text" name="name" id="name" placeholder="Your Name" required>
-
-    <label>Email Address:</label>
-    <input type="email" name="email" id="email" placeholder="Your Email" required>
-
-    <button type="submit">Subscribe</button>
-    <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'">View Newsletters</button>
-
-    <div class="msg" id="msg"></div>
-  </form>
-</div>
-
-<script>
-const SUBSCRIBE_URL = "https://script.google.com/macros/s/AKfycbxD0vmXOgERx4jJYiErBl2RrNYU7ao4S9Uc64X4ZxWcZgnFG1i2F1uNdsvrt5VzCQP_/exec";
-
-document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();       // fixed ID
-  const messageEl = document.getElementById("msg");                 // fixed ID
-
-  if (!email) {
-    messageEl.textContent = "Please enter a valid email.";
-    return;
-  }
-
-  const params = new URLSearchParams();
-  params.append("action", "subscribe");
-  params.append("email", email);
-
-  try {
-    const res = await fetch(SUBSCRIBE_URL, {
-      method: "POST",
-      body: params,
-    });
-
-    const text = await res.text();
-    if (text.includes("Success")) {
-      messageEl.textContent = "✅ Thank you for subscribing!";
-      document.getElementById("subscribeForm").reset();
-    } else if (text.includes("Already subscribed")) {
-      messageEl.textContent = "⚠️ You are already subscribed.";
-    } else {
-      messageEl.textContent = "❌ Subscription failed. Try again later.";
-    }
-  } catch (err) {
-    console.error(err);
-    messageEl.textContent = "❌ Subscription failed. Try again later.";
-  }
-});
-</script>
-
-
-<section class="github-projects">
-  <button class="dropdown-toggle">📂 Show GitHub Projects</button>
-  <div class="project-content">
-    <div class="project-grid">
-<section class="github-projects">
-  <div class="project-grid">
-    <div class="project-card">
-      <h3>FLY GAME</h3>
-      <p>A real-time multiplayer 3D aircraft combat game built with Three.js and Node.js..</p>
-      <a href="https://github.com/samadrehman/FLY-GAME-" target="_blank" class="btn-primary">View Code</a>
-    </div>
-
-    <div class="project-card">
-      <h3>Customer Segmentation Dashboard</h3>
-      <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets. </p>
-      <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
-    </div>
-
-    <div class="project-card">
-      <h3>AI Sentiment-Based Text Generator</h3>
-      <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
-      <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
-    </div>
-      <div class="project-card">
-      <h3>SEO Analysis Dashboard</h3>
-      <p>This project is built as part of the Remote ML Internship Assessment. It analyzes the SEO performance of websites and provides actionable insights.</p>
-      <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
-    </div>
-    <div class="project-card">
-      <h3>Example Website </h3>
-      <p>This project is built is a part of e commerce website for demo purposes.</p>
-      <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
-    </div>
-       <div class="project-card">
-      <h3>Demo Doctor website </h3>
-      <p>This project is built is a part of doctor clicnic website for demo purposes.</p>
-      <a href="https://github.com/samadrehman/Demo-Doctor-website-" target="_blank" class="btn-primary">View Code</a>
-    </div>
-  </div>
-</section>
-    </div>
-  </div>
-</section>
-
-
-  <main class="container">
-    <section class="left-section">
-      <div class="profile">
+  <section class="hero">
+    <div class="container">
+      <div class="profile fade-in-up">
         <p class="intro">
           Student based in Bhopal, India. <br />
           I build projects that solve my own problems. Focused on design, speed, and user experience.<br />
           College: Government Hamidia Arts & Commerce College. <br /> <br />
-          <a href="mailto:samadrehman550@gmail.com" target="_blank" class="btn-primary"> samadrehman550@gmail.com</a> <br />
-          <div class="profile-buttons">
-  <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
-</div>
-
+          <a href="mailto:samadrehman550@gmail.com" target="_blank">samadrehman550@gmail.com</a> <br />
         </p>
-      </div>
-
-      <div class="tech-stack">
-        <h2>Tech Stack </h2>
-        <ul>
-          <li>Python</li>
-          <li>HTML / CSS / JavaScript / TypeScript</li>
-          <li>Go</li>
-          <li>Machine Learning (medium level)</li>
-          <li>Cybersecurity basics</li>
-          <li>Docker, Git & GitHub</li> </br>
-        <h2>Experience</h2>
-          <ul>
-            <li><strong>Machine Learning Intern at Talrn</strong> (Oct 2025 - Present)</li>
-            <li><strong>Open Source Contributor</strong> on GitHub</li>
-            <li><strong>Participant</strong> in Kaggle Competitions</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- RIGHT SIDE -->
-    <section class="right-section">
-      <div class="certificates">
-        <h2>Certificates</h2>
-
-        <div class="certificate-item">
-          <img src="delhi.png" alt="IIT Delhi Certificate" />
-          <p>IIT Delhi — Machine Learning in Finance (2025)</p>
-        </div>
-
-        <div class="certificate-item">
-          <img src="python.png" alt="Python Certificate" />
-          <p>Python Certificate from Technology Developer (2025)</p>
+        <div class="profile-buttons">
+          <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
         </div>
       </div>
+    </div>
+  </section>
 
-    <div class="halloween-banner">
-  🎃 Hello — spooky & keep coding 👻
-</div>
+  <div class="subscribeForm fade-in-up delay-1">
+    <form id="subscribeForm">
+      <h2>Subscribe to Our Newsletter</h2>
 
-  <!-- Rain + Fireworks Canvas -->
+      <label>Full Name:</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+
+      <label>Email Address:</label>
+      <input type="email" name="email" id="email" placeholder="Your Email" required>
+
+      <button type="submit">Subscribe</button>
+      <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'">View Newsletters</button>
+
+      <div class="msg" id="msg"></div>
+    </form>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="container-grid">
+        <section class="left-section">
+          <div class="tech-stack fade-in-up delay-1">
+            <h2 class="section-title">Tech Stack</h2>
+            <ul class="tech-list">
+              <li>Python</li>
+              <li>HTML / CSS / JavaScript / TypeScript</li>
+              <li>Go</li>
+              <li>Machine Learning (medium level)</li>
+              <li>Cybersecurity basics</li>
+              <li>Docker, Git & GitHub</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack fade-in-up delay-2">
+            <h2 class="section-title">Experience</h2>
+            <ul class="experience-list">
+              <li>
+                <strong>Machine Learning Intern at Talrn</strong>
+                <span>Oct 2025 - Present</span>
+              </li>
+              <li>
+                <strong>Open Source Contributor</strong>
+                <span>GitHub</span>
+              </li>
+              <li>
+                <strong>Participant</strong>
+                <span>Kaggle Competitions</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="right-section">
+          <div class="certificates fade-in-up delay-2">
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="certificate-item">
+              <img src="delhi.png" alt="IIT Delhi Certificate" />
+              <p>IIT Delhi — Machine Learning in Finance (2025)</p>
+            </div>
+
+            <div class="certificate-item">
+              <img src="python.png" alt="Python Certificate" />
+              <p>Python Certificate from Technology Developer (2025)</p>
+            </div>
+          </div>
+
+          <div class="halloween-banner fade-in-up delay-3">
+            🎃 Hello — spooky & keep coding 👻
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <section class="github-projects">
+    <div class="container">
+      <button class="dropdown-toggle fade-in-up delay-3">
+        <span>📂 Show GitHub Projects</span>
+        <span>▼</span>
+      </button>
+      <div class="project-content">
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>FLY GAME</h3>
+            <p>A real-time multiplayer 3D aircraft combat game built with Three.js and Node.js.</p>
+            <a href="https://github.com/samadrehman/FLY-GAME-" target="_blank" class="btn-primary">View Code</a>
+          </div>
+
+          <div class="project-card">
+            <h3>Customer Segmentation Dashboard</h3>
+            <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
+            <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
+          </div>
+
+          <div class="project-card">
+            <h3>AI Sentiment-Based Text Generator</h3>
+            <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
+            <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
+          </div>
+
+          <div class="project-card">
+            <h3>SEO Analysis Dashboard</h3>
+            <p>This project is built as part of the Remote ML Internship Assessment. It analyzes the SEO performance of websites and provides actionable insights.</p>
+            <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
+          </div>
+
+          <div class="project-card">
+            <h3>Example Website</h3>
+            <p>This project is built is a part of e commerce website for demo purposes.</p>
+            <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
+          </div>
+
+          <div class="project-card">
+            <h3>Demo Doctor website</h3>
+            <p>This project is built is a part of doctor clicnic website for demo purposes.</p>
+            <a href="https://github.com/samadrehman/Demo-Doctor-website-" target="_blank" class="btn-primary">View Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Rain + Fireworks Canvas -->
   <canvas id="rain"></canvas>
   <canvas id="fireworkCanvas"></canvas>
 
@@ -468,7 +439,8 @@ document.addEventListener('keydown', (e) => {
     showNotice("Blocked .");
   }
 });
-
+</script>
+<script >
 // Optional: disable drag (e.g., images)
 document.addEventListener('dragstart', e => e.preventDefault());
 
@@ -525,26 +497,115 @@ function showNotice(msg) {
 
 </script>
 
+
 <script>
-
-  const githubSection = document.querySelector('.github-projects');
-  const toggleBtn = document.querySelector('.dropdown-toggle');
-  const projectContent = document.querySelector('.project-content');
-
-  toggleBtn.addEventListener('click', () => {
-    githubSection.classList.toggle('active');
-
-    // Animate dropdown open/close
-    if (githubSection.classList.contains('active')) {
-      projectContent.style.maxHeight = projectContent.scrollHeight + "px";
-      toggleBtn.innerHTML = "Hide Projects ▲";
-    } else {
-      projectContent.style.maxHeight = null;
-      toggleBtn.innerHTML = "Show Projects ▼";
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved theme or prefered scheme
+    const currentTheme = localStorage.getItem('theme') || 
+                        (prefersDarkScheme.matches ? 'dark' : 'light');
+    
+    // Apply the theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update button text based on current theme
+    updateThemeButton(currentTheme);
+    
+    // Toggle theme function
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      updateThemeButton(newTheme);
     }
-  });
-</script>
+    
+    function updateThemeButton(theme) {
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // Add event listener to theme toggle button
+    themeToggle.addEventListener('click', toggleTheme);
 
+    // GitHub projects dropdown
+    const githubSection = document.querySelector('.github-projects');
+    const toggleBtn = document.querySelector('.dropdown-toggle');
+    const projectContent = document.querySelector('.project-content');
 
+    toggleBtn.addEventListener('click', () => {
+      githubSection.classList.toggle('active');
+      
+      if (githubSection.classList.contains('active')) {
+        toggleBtn.innerHTML = '<span>📂 Hide GitHub Projects</span><span>▲</span>';
+      } else {
+        toggleBtn.innerHTML = '<span>📂 Show GitHub Projects</span><span>▼</span>';
+      }
+    });
+
+    // Newsletter form submission
+    const SUBSCRIBE_URL = "https://script.google.com/macros/s/AKfycbxD0vmXOgERx4jJYiErBl2RrNYU7ao4S9Uc64X4ZxWcZgnFG1i2F1uNdsvrt5VzCQP_/exec";
+
+    document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const messageEl = document.getElementById("msg");
+
+      if (!email) {
+        messageEl.textContent = "Please enter a valid email.";
+        messageEl.className = "msg error-message";
+        return;
+      }
+
+      const params = new URLSearchParams();
+      params.append("action", "subscribe");
+      params.append("email", email);
+
+      try {
+        const res = await fetch(SUBSCRIBE_URL, {
+          method: "POST",
+          body: params,
+        });
+
+        const text = await res.text();
+        if (text.includes("Success")) {
+          messageEl.textContent = "✅ Thank you for subscribing!";
+          messageEl.className = "msg success-message";
+          document.getElementById("subscribeForm").reset();
+        } else if (text.includes("Already subscribed")) {
+          messageEl.textContent = "⚠️ You are already subscribed.";
+          messageEl.className = "msg error-message";
+        } else {
+          messageEl.textContent = "❌ Subscription failed. Try again later.";
+          messageEl.className = "msg error-message";
+        }
+      } catch (err) {
+        console.error(err);
+        messageEl.textContent = "❌ Subscription failed. Try again later.";
+        messageEl.className = "msg error-message";
+      }
+    });
+
+    
+    
+    // Initialize animations for elements with fade-in-up class
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in-up');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
