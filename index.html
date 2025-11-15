@@ -46,12 +46,10 @@
       <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Instagram</a>
       <a href="https://www.linkedin.com/in/samad-03b784387/" target="_blank">LinkedIn</a>
       <a href="game.html" target="_blank">Game</a>
-      <a href="1.html" style="display:none;"></a>
       <button class="dark-toggle" id="themeToggle">🌙</button>
     </nav>
   </header>
 
-  <canvas id="batsCanvas"></canvas>
 
   <section class="hero">
     <div class="container">
@@ -389,7 +387,7 @@
 
   if (disableEffects) {
     // hide canvases and prevent their animation loops
-    const canvases = ['rain','fireworkCanvas','batsCanvas'];
+    const canvases = ['rain','fireworkCanvas'];
     canvases.forEach(id => {
       const c = document.getElementById(id);
       if(c) {
