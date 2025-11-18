@@ -7,13 +7,12 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="styles.css" />
-  
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   
   <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:title" content="Samad ur Rehman | Developer Portfolio" />
@@ -25,9 +24,55 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://samadrehman.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://samadrehman.github.io/sitemap.xml">
-  
-  
+   <link rel="stylesheet" href="styles.css">
+
+   <script>
+  function redirectMobileUsers() {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isSmallScreen = window.innerWidth < 900;
+    const ua = navigator.userAgent.toLowerCase();
+
+    const mobileKeywords = [
+      "android", "iphone", "ipad", "ipod", "mobile", 
+      "blackberry", "windows phone", "opera mini", "opera mobi"
+    ];
+
+    const isUA_Mobile = mobileKeywords.some(k => ua.includes(k));
+
+    // If any condition is mobile → redirect
+    if (isTouch || isSmallScreen || isUA_Mobile) {
+      window.location.href = "otter.html";
+    }
+  }
+
+  redirectMobileUsers();
+
+  // Re-check on resize (people try tricks)
+  window.addEventListener("resize", redirectMobileUsers);
+</script>
+<script>
+  // --- Block Headless Browsers / Scrapers ---
+  const isHeadless =
+    navigator.webdriver ||
+    /HeadlessChrome|PhantomJS|Puppeteer|Playwright/i.test(navigator.userAgent) ||
+    !('plugins' in navigator) ||
+    !navigator.plugins.length ||
+    !navigator.language;
+
+  if (isHeadless) {
+      window.location.href = "otter.html";
+  }
+</script>
+<script>
+  // --- Ban Empty or Suspicious User Agents ---
+  if (!navigator.userAgent || navigator.userAgent.length < 10) {
+      window.location.href = "otter.html";
+  }
+</script>
+
 </head>
+<class="light-mode animated-bg">
+
 <body>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ"></script>
@@ -46,517 +91,256 @@
       <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Instagram</a>
       <a href="https://www.linkedin.com/in/samad-03b784387/" target="_blank">LinkedIn</a>
       <a href="game.html" target="_blank">Game</a>
-      <button class="dark-toggle" id="themeToggle">🌙</button>
     </nav>
   </header>
-
 
   <section class="hero">
     <div class="container">
       <div class="profile fade-in-up">
-        <strong>Samad Ur Rehman</strong>
+        <h1 class="profile-name">Samad Ur Rehman</h1>
         <p class="intro">
           Student based in Bhopal, India. <br />
           I build projects that solve my own problems. Focused on design, speed, and user experience.<br />
-          College: Government Hamidia Arts & Commerce College. <br /> <br />
-          <a href="mailto:samadrehman550@gmail.com" target="_blank">samadrehman550@gmail.com</a> <br />
+          College: Government Hamidia Arts & Commerce College.
         </p>
+        <div class="profile-contact">
+          <a href="mailto:samadrehman550@gmail.com" target="_blank">
+            <i class="fas fa-envelope"></i>
+            <strong class="highlight-mail">Mail : samadrehman550@gmail.com</strong>
+          </a>
+        </div>
         <div class="profile-buttons">
           <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <div class="halloween-banner fade-in-up delay-3">
+  🎃 Hello — spooky Merry Christmas👻
+</div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="subscribeForm fade-in-up delay-1">
-    <form id="subscribeForm">
-      <h2>Subscribe to Our Newsletter</h2>
-
-      <label>Full Name:</label>
-      <input type="text" name="name" id="name" placeholder="Your Name" required>
-
-      <label>Email Address:</label>
-      <input type="email" name="email" id="email" placeholder="Your Email" required>
-
-      <button type="submit">Subscribe</button>
-      <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'">View Newsletters</button>
-
-      <div class="msg" id="msg"></div>
-    </form>
-  </div>
-
   <main class="main-content">
     <div class="container">
-      <div class="container-grid">
+      <div class="content-grid">
         <section class="left-section">
           <div class="tech-stack fade-in-up delay-1">
             <h2 class="section-title">Tech Stack</h2>
-            <ul class="tech-list">
-              <li>Python</li>
-              <li>HTML / CSS / JavaScript / TypeScript</li>
-              <li>Go</li>
-              <li>Machine Learning (medium level)</li>
-              <li>Cybersecurity basics</li>
-              <li>Docker, Git & GitHub</li>
-            </ul>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-html5"></i>
+                <span>HTML / CSS / JavaScript / TypeScript</span>
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-brain"></i>
+                <span>Machine Learning (Enough for me )</span>
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Cybersecurity basics</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-docker"></i>
+                <span>Git, GitHub</span>
+              </div>
+            </div>
           </div>
 
-          <div class="tech-stack fade-in-up delay-2">
+          <div class="experience-section fade-in-up delay-2">
             <h2 class="section-title">Experience</h2>
-            <ul class="experience-list">
-              <li>
-                <strong>Machine Learning Intern at Talrn</strong>
-                <span>Oct 2025 - Present</span>
-              </li>
-              <li>
-                <strong>Open Source Contributor</strong>
-                <span>GitHub</span>
-              </li>
-              <li>
-                <strong>Participant</strong>
-                <span>Kaggle Competitions</span>
-              </li>
-            </ul>
+            <div class="experience-list">
+              <div class="experience-item">
+                <div class="experience-header">
+                  <h3>Machine Learning Intern at Talrn</h3>
+                  <span class="experience-date">Oct 2025 - Present</span>
+                </div>
+                <p>Working on machine learning projects and implementations.</p>
+              </div>
+              <div class="experience-item">
+                <div class="experience-header">
+                  <h3>Open Source Contributor</h3>
+                  <span class="experience-date">GitHub</span>
+                </div>
+                <p>Contributing to various open source projects.</p>
+              </div>
+              <div class="experience-item">
+                <div class="experience-header">
+                  <h3>Participant</h3>
+                  <span class="experience-date">Kaggle Competitions</span>
+                </div>
+                <p>Participating in data science and machine learning competitions.</p>
+              </div>
+            </div>
           </div>
         </section>
+
         <section class="right-section">
-          <div class="certificates fade-in-up delay-2">
+          <div class="certificates-section fade-in-up delay-2">
             <h2 class="section-title">Certificates</h2>
-
-            <div class="certificate-item">
-              <img src="delhi.png" alt="IIT Delhi Certificate" />
-              <p>IIT Delhi — Machine Learning in Finance (2025)</p>
-            </div>
-
-            <div class="certificate-item">
-              <img src="python.png" alt="Python Certificate" />
-              <p>Python Certificate from Technology Developer (2025)</p>
+            <div class="certificates-grid">
+              <div class="certificate-card">
+                <div class="certificate-image">
+                  <img src="delhi.png" alt="IIT Delhi Certificate" />
+                </div>
+                <div class="certificate-info">
+                  <h3>IIT Delhi</h3>
+                  <p>Machine Learning in Finance (2025)</p>
+                </div>
+              </div>
+              <div class="certificate-card">
+                <div class="certificate-image">
+                  <img src="python.png" alt="Python Certificate" />
+                </div>
+                <div class="certificate-info">
+                  <h3>Python Certificate</h3>
+                  <p>Technology Developer (2025)</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="halloween-banner fade-in-up delay-3">
-            🎃 Hello — spooky & keep coding 👻
+          <div class="newsletter-section fade-in-up delay-3">
+            <h2 class="section-title">Stay Updated</h2>
+            <form id="subscribeForm" class="subscribe-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              <button type="submit" class="btn-primary">Subscribe</button>
+              <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'" class="btn-secondary">
+                View Newsletters
+              </button>
+              <div class="msg" id="msg"></div>
+            </form>
           </div>
         </section>
       </div>
     </div>
   </main>
 
-  <section class="github-projects">
+  <section class="projects-section" id="projects">
     <div class="container">
-      <button class="dropdown-toggle fade-in-up delay-3">
-        <span>📂 Show GitHub Projects</span>
-        <span>▼</span>
-      </button>
-      <div class="project-content">
-        <div class="project-grid">
-          
-
-          <div class="project-card">
-            <h3>Customer Segmentation Dashboard</h3>
-            <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
+      <h2 class="section-title">GitHub Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in-up">
+          <h3>Customer Segmentation Dashboard</h3>
+          <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
+          <div class="project-links">
             <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
           </div>
-
-          <div class="project-card">
-            <h3>AI Sentiment-Based Text Generator</h3>
-            <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
-            <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
-          </div>
-
-          <div class="project-card">
-            <h3>SEO Analysis Dashboard</h3>
-            <p>This project is built as part of the Remote ML Internship Assessment. It analyzes the SEO performance of websites and provides actionable insights.</p>
-            <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
-          </div>
-
-          <div class="project-card">
-            <h3>Example Website</h3>
-            <p>This project is built is a part of e commerce website for demo purposes.</p>
-            <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/Example-website-/" target="_blank" class="btn-primary">Live Demo</a>
-          </div>
-
-          <div class="project-card">
-            <h3>Demo Doctor website</h3>
-            <p>This project is built is a part of doctor clicnic website for demo purposes.</p>
-            <a href="https://github.com/samadrehman/Demo-Doctor-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/Demo-Doctor-website-/" target="_blank" class="btn-primary">Live Demo</a>
-          </div>
-
-          <div class="project-card">
-            <h3>Psychological Profession website</h3>
-            <p>This project is built is a part of Psychological profession people for demo purpose .</p>
-            <a href="https://github.com/samadrehman/-Psychology-Clinic-demo-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/-Psychology-Clinic-demo-website-/" target="_blank" class="btn-primary">Live Demo</a>
         </div>
 
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p> This project is built is a part of School demo purpose.</p>
-            <a href="https://samadrehman.github.io/School-demo-website-/" target="_blank" class="btn-primary">Live Demo</a> 
+        <div class="project-card fade-in-up">
+          <h3>AI Sentiment-Based Text Generator</h3>
+          <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
+          <div class="project-links">
+            <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h3>SEO Analysis Dashboard</h3>
+          <p>This project is built as part of the Remote ML Internship Assessment. It analyzes the SEO performance of websites and provides actionable insights.</p>
+          <div class="project-links">
+            <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h3>Shopping  Website</h3>
+          <p>This project is built is a part of e commerce website for demo purposes.</p>
+          <div class="project-links">
+            <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
+            <a href="https://samadrehman.github.io/Example-website-/" target="_blank" class="btn-secondary">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h3>Demo Doctor website</h3>
+          <p>This project is built is a part of doctor clicnic website for demo purposes.</p>
+          <div class="project-links">
+            <a href="https://github.com/samadrehman/Demo-Doctor-website-" target="_blank" class="btn-primary">View Code</a>
+            <a href="https://samadrehman.github.io/Demo-Doctor-website-/" target="_blank" class="btn-secondary">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h3>Psychological Profession website</h3>
+          <p>This project is built is a part of Psychological profession people for demo purpose.</p>
+          <div class="project-links">
+            <a href="https://github.com/samadrehman/-Psychology-Clinic-demo-website-" target="_blank" class="btn-primary">View Code</a>
+            <a href="https://samadrehman.github.io/-Psychology-Clinic-demo-website-/" target="_blank" class="btn-secondary">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h3>School Website</h3>
+          <p>This project is built is a part of School demo purpose.</p>
+          <div class="project-links">
+            <a href="https://samadrehman.github.io/School-demo-website-/" target="_blank" class="btn-secondary">Live Demo</a> 
             <a href="https://github.com/samadrehman/School-demo-website-" target="_blank" class="btn-primary">View Code</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/samadrehman" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">
+            <i class="fas fa-code"></i>
+          </a>
+          <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/samad-03b784387/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-   <!-- Rain + Fireworks Canvas -->
-  <canvas id="rain"></canvas>
-  <canvas id="fireworkCanvas"></canvas>
 
-  <!-- JS Features -->
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const fadeElements = document.querySelectorAll('.fade-in-up');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeElements.forEach(el => observer.observe(el));
+});
+
+</script>
+
+
+
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-
-    // ====== RAIN EFFECT ======
-    const canvas = document.getElementById("rain");
-    const ctx = canvas.getContext("2d");
-    let rainDrops = [];
-    let raining = false;
-    let flashOpacity = 0;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class RainDrop {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * -canvas.height;
-        this.length = Math.random() * 25 + 15;
-        this.speed = Math.random() * 5 + 5;
-        this.thickness = Math.random() * 2;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(174,194,224,0.8)";
-        ctx.lineWidth = this.thickness;
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x, this.y + this.length);
-        ctx.stroke();
-      }
-      update() {
-        this.y += this.speed;
-        if (this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < 500; i++) rainDrops.push(new RainDrop());
-
-    function animateRain() {
-      if (!raining) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      rainDrops.forEach(drop => drop.update());
-      if (flashOpacity > 0) {
-        ctx.fillStyle = `rgba(255,255,255,${flashOpacity})`;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        flashOpacity -= 0.3;
-      }
-      requestAnimationFrame(animateRain);
-    }
-
-    function randomLightning() {
-      if (raining && Math.random() < 0.1) flashOpacity = 0.1;
-      setTimeout(randomLightning, 200);
-    }
-    randomLightning();
-
-    document.addEventListener("keydown", e => {
-      if (e.ctrlKey && e.key === "m") {
-        raining = !raining;
-        if (raining) {
-          canvas.style.display = "block";
-          animateRain();
-        } else {
-          canvas.style.display = "none";
-        }
-      }
-    });
-    canvas.style.display = "none";
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.pointerEvents = "none";
-
-    // ====== FIREWORK EFFECT ======
-    const fireCanvas = document.getElementById("fireworkCanvas");
-    const fwCtx = fireCanvas.getContext("2d");
-    fireCanvas.style.position = "fixed";
-    fireCanvas.style.top = "0";
-    fireCanvas.style.left = "0";
-    fireCanvas.style.width = "100%";
-    fireCanvas.style.height = "100%";
-    fireCanvas.style.pointerEvents = "none";
-    fireCanvas.style.display = "none";
-    fireCanvas.width = window.innerWidth;
-    fireCanvas.height = window.innerHeight;
-
-    window.addEventListener("resize", () => {
-      fireCanvas.width = window.innerWidth;
-      fireCanvas.height = window.innerHeight;
-    });
-
-    let fireworks = [];
-    class Firework {
-      constructor(x, y) {
-        this.x = x;
-        this.y = fireCanvas.height;
-        this.targetY = y;
-        this.trail = [];
-        this.exploded = false;
-        this.particles = [];
-        this.speedY = -8;
-      }
-      update() {
-        if (!this.exploded) {
-          this.trail.push({ x: this.x, y: this.y });
-          if (this.trail.length > 150) this.trail.shift();
-          this.y += this.speedY;
-          if (this.y <= this.targetY) this.explode();
-        } else {
-          this.particles.forEach(p => p.update());
-        }
-      }
-      draw() {
-        if (!this.exploded) {
-          fwCtx.beginPath();
-          fwCtx.moveTo(this.x, this.y);
-          fwCtx.lineTo(this.x, this.y + 1);
-          fwCtx.strokeStyle = "orange";
-          fwCtx.stroke();
-        } else {
-          this.particles.forEach(p => p.draw());
-        }
-      }
-      explode() {
-        this.exploded = true;
-        for (let i = 0; i < 200; i++) {
-          this.particles.push(new Particle(this.x, this.y));
-        }
-      }
-    }
-    class Particle {
-      constructor(x, y) {
-        this.x = x; this.y = y;
-        this.speedX = (Math.random() - 0.5) * 6;
-        this.speedY = (Math.random() - 0.5) * 6;
-        this.size = Math.random() * 5 + 2;
-        this.life = 100;
-        this.color = `hsl(${Math.random() * 360},100%,50%)`;
-      }
-      update() {
-        this.x += this.speedX; this.y += this.speedY;
-        this.speedY += 0.05; this.life--;
-      }
-      draw() {
-        fwCtx.beginPath();
-        fwCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        fwCtx.fillStyle = this.color;
-        fwCtx.fill();
-      }
-    }
-
-    function animate() {
-      fwCtx.clearRect(0, 0, fireCanvas.width, fireCanvas.height);
-      fireworks.forEach((fw, i) => {
-        fw.update(); fw.draw();
-        if (fw.exploded && fw.particles.every(p => p.life <= 0)) fireworks.splice(i, 1);
-      });
-      requestAnimationFrame(animate);
-    }
-
-    document.addEventListener("keydown", e => {
-      if (e.ctrlKey && e.key.toLowerCase() === "b") {
-        fireCanvas.style.display = "block";
-        fireworks.push(new Firework(
-          Math.random() * fireCanvas.width,
-          Math.random() * fireCanvas.height / 2
-        ));
-        if (fireworks.length === 3) animate();
-      }
-    });
-  </script>
-
-
-<script>
-  // put this at top of effects.js or in a small separate file loaded before animations run
-(function optimizeForMobile(){
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
-  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lowRam = navigator.deviceMemory && navigator.deviceMemory <= 1; // 1-2 GB devices
-  const slowConnection = navigator.connection && (navigator.connection.saveData || ['slow-2g','2g'].includes(navigator.connection.effectiveType ?? ''));
-
-  const disableEffects = isMobile || prefersReducedMotion || lowRam || slowConnection;
-
-  if (disableEffects) {
-    // hide canvases and prevent their animation loops
-    const canvases = ['rain','fireworkCanvas'];
-    canvases.forEach(id => {
-      const c = document.getElementById(id);
-      if(c) {
-        c.style.display = 'none';
-        // if you store animation state functions, set a flag to stop them
-        window.__DISABLE_VISUAL_EFFECTS = true;
-      }
-    });
-
-    // optionally reduce floating blob size for mobile
-    const blob = document.querySelector('.gradient-blob, .floating-blob, .blob');
-    if (blob) {
-      blob.style.width = '260px';
-      blob.style.height = '260px';
-      blob.style.filter = 'blur(100px)';
-    }
-  } else {
-    window.__DISABLE_VISUAL_EFFECTS = false;
-  }
-})();
-
-
-</script>
-<script>
-  // Disable right-click (context menu)
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-   showNotice(" try another way kid .");
-});
-
-// Disable text selection
-document.addEventListener('selectstart', e => {
-  e.preventDefault();
-});
-
-// Disable common keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-  const key = (e.key || "").toLowerCase();
-
-  // Disable copy, cut, paste, view-source, save, inspect
-  if (
-    (e.ctrlKey && ['c', 'x', 'v', 'u', 's', 'p'].includes(key)) || // Ctrl + (C,X,V,U,S,P)
-    (e.ctrlKey && e.shiftKey && key === 'i') || // Ctrl + Shift + I
-    key === 'f12' // F12
-  ) {
-    e.preventDefault();
-    showNotice("Blocked .");
-  }
-});
-</script>
-<script >
-// Optional: disable drag (e.g., images)
-document.addEventListener('dragstart', e => e.preventDefault());
-
-// Optional: small floating notice (user feedback)
-function showNotice(msg) {
-  const notice = document.createElement('div');
-  notice.textContent = msg;
-  Object.assign(notice.style, {
-    position: 'fixed',
-    bottom: '20px',
-    right: '20px',
-    padding: '10px 16px',
-    background: 'rgba(0,0,0,0.75)',
-    color: '#fff',
-    borderRadius: '8px',
-    fontSize: '14px',
-    fontFamily: 'sans-serif',
-    zIndex: 9999,
-    transition: 'opacity 0.3s'
-  });
-  document.body.appendChild(notice);
-  setTimeout(() => {
-    notice.style.opacity = '0';
-    setTimeout(() => notice.remove(), 300);
-  }, 2000);
-}
-
-function showNotice(msg) {
-  const notice = document.createElement('div');
-  notice.textContent = msg;
-  Object.assign(notice.style, {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    padding: '14px 22px',
-    background: 'rgba(0,0,0,0.85)',
-    color: '#fff',
-    borderRadius: '10px',
-    fontSize: '16px',
-    fontFamily: 'sans-serif',
-    textAlign: 'center',
-    zIndex: 9999,
-    boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
-    opacity: '1',
-    transition: 'opacity 0.3s ease'
-  });
-  document.body.appendChild(notice);
-  setTimeout(() => {
-    notice.style.opacity = '0';
-    setTimeout(() => notice.remove(), 300);
-  }, 2000);
-}
-
-</script>
-
-
-<script>
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Check for saved theme or prefered scheme
-    const currentTheme = localStorage.getItem('theme') || 
-                        (prefersDarkScheme.matches ? 'dark' : 'light');
-    
-    // Apply the theme
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    
-    // Update button text based on current theme
-    updateThemeButton(currentTheme);
-    
-    // Toggle theme function
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      updateThemeButton(newTheme);
-    }
-    
-    function updateThemeButton(theme) {
-      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-    
-    // Add event listener to theme toggle button
-    themeToggle.addEventListener('click', toggleTheme);
-
-    // GitHub projects dropdown
-    const githubSection = document.querySelector('.github-projects');
-    const toggleBtn = document.querySelector('.dropdown-toggle');
-    const projectContent = document.querySelector('.project-content');
-
-    toggleBtn.addEventListener('click', () => {
-      githubSection.classList.toggle('active');
-      
-      if (githubSection.classList.contains('active')) {
-        toggleBtn.innerHTML = '<span>📂 Hide GitHub Projects</span><span>▲</span>';
-      } else {
-        toggleBtn.innerHTML = '<span>📂 Show GitHub Projects</span><span>▼</span>';
-      }
-    });
-
-    // Newsletter form submission
+        // Newsletter form submission
     const SUBSCRIBE_URL = "https://script.google.com/macros/s/AKfycbxD0vmXOgERx4jJYiErBl2RrNYU7ao4S9Uc64X4ZxWcZgnFG1i2F1uNdsvrt5VzCQP_/exec";
 
     document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
@@ -599,23 +383,8 @@ function showNotice(msg) {
         messageEl.className = "msg error-message";
       }
     });
-
-    
-    
-    // Initialize animations for elements with fade-in-up class
-    document.addEventListener('DOMContentLoaded', function() {
-      const fadeElements = document.querySelectorAll('.fade-in-up');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      fadeElements.forEach(el => observer.observe(el));
-    });
   </script>
+
+  
 </body>
 </html>
