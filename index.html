@@ -26,49 +26,7 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://samadrehman.github.io/sitemap.xml">
    <link rel="stylesheet" href="styles.css">
 
-   <script>
-  function redirectMobileUsers() {
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isSmallScreen = window.innerWidth < 900;
-    const ua = navigator.userAgent.toLowerCase();
-
-    const mobileKeywords = [
-      "android", "iphone", "ipad", "ipod", "mobile", 
-      "blackberry", "windows phone", "opera mini", "opera mobi"
-    ];
-
-    const isUA_Mobile = mobileKeywords.some(k => ua.includes(k));
-
-    // If any condition is mobile → redirect
-    if (isTouch || isSmallScreen || isUA_Mobile) {
-      window.location.href = "otter.html";
-    }
-  }
-
-  redirectMobileUsers();
-
-  // Re-check on resize (people try tricks)
-  window.addEventListener("resize", redirectMobileUsers);
-</script>
-<script>
-  // --- Block Headless Browsers / Scrapers ---
-  const isHeadless =
-    navigator.webdriver ||
-    /HeadlessChrome|PhantomJS|Puppeteer|Playwright/i.test(navigator.userAgent) ||
-    !('plugins' in navigator) ||
-    !navigator.plugins.length ||
-    !navigator.language;
-
-  if (isHeadless) {
-      window.location.href = "otter.html";
-  }
-</script>
-<script>
-  // --- Ban Empty or Suspicious User Agents ---
-  if (!navigator.userAgent || navigator.userAgent.length < 10) {
-      window.location.href = "otter.html";
-  }
-</script>
+ 
 
 </head>
 <class="light-mode animated-bg">
@@ -107,6 +65,7 @@
           <a href="mailto:samadrehman550@gmail.com" target="_blank">
             <i class="fas fa-envelope"></i>
             <strong class="highlight-mail">Mail : samadrehman550@gmail.com</strong>
+            <a href="hireme.html"> Hire me </a>
           </a>
         </div>
         <div class="profile-buttons">
