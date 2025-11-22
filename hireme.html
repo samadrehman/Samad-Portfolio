@@ -3,13 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire me </title>
+    <title>Hire Samad Rehman - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-white: #FFFFFF;
+            --color-cream: #FAF8F3;
+            --color-gold: #D4AF37;
+            --color-gold-light: #E8C547;
+            --color-charcoal: #2C2C2C;
+            --color-gray: #8B8B8B;
+            --color-border: #E5E5E5;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hire {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-cream) 50%, var(--color-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hire::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.1; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.15; }
+        }
+
+        .hire h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hire p {
+            font-size: 1.5rem;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hire .tagline {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-section {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            margin-bottom: 4rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .tech-stack-section h2 {
+            font-size: 2rem;
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .tech-stack-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--color-cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            font-weight: 600;
+            color: var(--color-charcoal);
+        }
+
+        .tech-item:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+            background: var(--color-white);
+            color: var(--color-gold);
+        }
+
+        /* Service Selection */
+        .service-selection {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            margin-bottom: 4rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .service-selection h2 {
+            font-size: 2rem;
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .service-selection h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--color-cream);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25);
+            background: var(--color-white);
+        }
+
+        .service-card.active {
+            border-color: var(--color-gold);
+            background: var(--color-white);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--color-border);
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            background: var(--color-white);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--color-gold);
+            color: var(--color-white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--color-gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--color-cream);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info p {
+            color: var(--color-gray);
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--color-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--color-gold-light);
+            text-decoration: underline;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(212, 175, 55, 0.15);
+            border: 2px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hire h1 {
+                font-size: 2.5rem;
+            }
+
+            .hire p {
+                font-size: 1.2rem;
+            }
+
+            .hire .tagline {
+                font-size: 1.4rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .service-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class ="hire">
-        <h1> Samad Rehman </h1>
-        <p> Hello Recruiter and People </p>
-
+    <div class="hire">
+        <h1>Samad Rehman</h1>
+        <p class="tagline">Full Stack Developer | Building Digital Solutions That Matter</p>
+        <p>Hello Recruiter and Business Owners! I'm a passionate developer ready to bring your ideas to life with clean code and modern technologies.</p>
     </div>
+
+    <div class="container">
+        <!-- Tech Stack Section -->
+        <div class="tech-stack-section">
+            <h2>💻 Tech Stack & Expertise</h2>
+            <div class="tech-grid">
+                <div class="tech-item">HTML5</div>
+                <div class="tech-item">CSS3</div>
+                <div class="tech-item">JavaScript</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">TypeScript</div>
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Express.js</div>
+                <div class="tech-item">MongoDB</div>
+                <div class="tech-item">PostgreSQL</div>
+            </div>
+        </div>
+
+        <!-- Service Selection -->
+        <div class="service-selection">
+            <h2>🎯 What Are You Looking For?</h2>
+            <div class="service-options">
+                <div class="service-card" onclick="selectService('recruitment')">
+                    <div class="icon">👔</div>
+                    <h3>Recruit Me</h3>
+                    <p>Looking to hire a full-stack developer for your team? Let's discuss full-time or contract opportunities.</p>
+                </div>
+                <div class="service-card" onclick="selectService('website')">
+                    <div class="icon">🌐</div>
+                    <h3>Website Development</h3>
+                    <p>Need a custom website, web application, or digital solution? I can help bring your vision to reality.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>📬 Get In Touch</h2>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="service">Type of Inquiry *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select Service Type</option>
+                            <option value="recruitment">Full-Time Recruitment</option>
+                            <option value="contract">Contract/Freelance Work</option>
+                            <option value="website">Website Development</option>
+                            <option value="webapp">Web Application</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Project Details / Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project, requirements, timeline, or any questions you have..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Send Message 🚀</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                ✅ Thank you! Your message has been received. I'll get back to you within 24 hours!
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3>📞 Prefer Direct Contact?</h3>
+                <p>Email: <a href="mailto:slifeisenjoy510@gmail.com">slifeisenjoy510@gmail.com</a></p>
+                <p>Phone: <a href="tel:+919009978393">+91 9009978393</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectService(event, serviceType) {
+    document.querySelectorAll('.service-card').forEach(card =>
+        card.classList.remove('active')
+    );
+
+    event.currentTarget.classList.add('active');
+
+    const serviceSelect = document.getElementById('service');
+    serviceSelect.value = serviceType;
+
+    document.querySelector('.contact-form')
+        .scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbw3G03TfQTLsaFQpMxbLIiES8Mljyf1FI1us96B0C6eMks2QOPZ3WZs3Bl4JtbDpozvTw/exec";
+
+    await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+    });
+
+    const successMessage = document.getElementById('successMessage');
+    successMessage.classList.add('show');
+
+    event.target.reset();
+    document.querySelectorAll('.service-card').forEach(card =>
+        card.classList.remove('active')
+    );
+
+    setTimeout(() => {
+        successMessage.classList.remove('show');
+    }, 5000);
+}
+
+    </script>
 </body>
 </html>
