@@ -2,17 +2,6 @@
 
 Welcome to my personal portfolio website — a creative, colorful, and Apple-inspired space where I showcase my projects, certificates, and journey as a developer.
 
----
-
-
-
-Built with pure **HTML, CSS, and JavaScript**, this site features:
-- 🌧️ Rain and Firework animations  
-- 🦇 Flying bats for fun headers  
-- 🌙 Dark-mode toggle  
-- 💫 Candy-style pastel glassmorphism  
-
----
 
 ## 🧠 About Me
 
