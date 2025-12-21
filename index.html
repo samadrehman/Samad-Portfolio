@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samad ur Rehman | Developer Portfolio</title>
+  <title>Samad ur Rehman | Luxury Portfolio</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -11,25 +11,21 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="Samad ur Rehman | Developer Portfolio" />
+  <!-- Meta Tags -->
+  <meta property="og:title" content="Samad ur Rehman | Luxury Portfolio" />
   <meta property="og:description" content="Explore my projects, certificates, and experience in ML, Python, and Web Dev." />
   <meta property="og:image" content="https://samadrehman.github.io/images/preview.jpg" />
   <meta property="og:url" content="https://samadrehman.github.io/" />
   <meta property="og:type" content="website" />
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://samadrehman.github.io/" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://samadrehman.github.io/sitemap.xml">
-   <link rel="stylesheet" href="styles.css">
-
- 
-
+  <link rel="stylesheet" href="styles.css">
 </head>
-<class="light-mode animated-bg">
 
 <body>
   <!-- Google Analytics -->
@@ -41,318 +37,236 @@
     gtag('config', 'G-STRPMP0TZQ');
   </script>
 
-  <header class="top-bar">
-    <h1 class="site-title">Samad ur Rehman</h1>
-    <nav class="social-buttons">
-      <a href="https://github.com/samadrehman" target="_blank">GitHub</a>
-      <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">LeetCode</a>
-      <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank">LinkedIn</a>
-      <a href="game.html" target="_blank">Game</a>
-      <a href ="https://samadrehman.github.io/AI-STUFF-IMAGES-/" target="_blank">Random Projects</a>
-    </nav>
-  </header>
+  <!-- Navigation -->
+  <nav class="luxury-nav">
+    <a href="#home">Main</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificate</a>
+  </nav>
 
-  <section class="hero">
-    <div class="container">
-      <div class="profile fade-in-up">
-        <h1 class="profile-name">Samad Ur Rehman</h1>
-        <p class="intro">
-          Student based in Bhopal, India. <br/>
-          I build projects that solve my own problems. <br/>
-          Focused on design, speed, and user experience.<br/>
-          College: Government Hamidia Arts & Commerce College.
-        </p>
-        <div class="profile-contact">
-          <a href="mailto:samadrehman550@gmail.com" target="_blank">
-            <i class="fas fa-envelope"></i>
-            <strong class="highlight-mail">Mail : samadrehman550@gmail.com</strong>
-          </a>
-        </div>
-        <div class="profile-buttons">
-          <a href="story.html" target="_blank" class="btn-secondary">My Story</a>
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <div class="halloween-banner fade-in-up delay-3">
-  🎃 Hello — spooky Merry Christmas👻
-</div>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+      <div class="profile-circle">
+        <div class="circle-image">
+          <span class="placeholder-text"></span>
+          <img src="profilephoto.jpg" alt="Samad ur Rehman"> 
         </div>
       </div>
+      
+      <div class="hero-content">
+        <div class="text-box">
+          <h1 class="hero-title">Samad Ur Rehman</h1>
+          <p class="hero-description">
+            Student based in Bhopal, India.
+            I build projects that solve my own problems.
+            Focused on design, speed, and user experience.<br/>
+            College: Government Hamidia Arts & Commerce College.
+          </p>
+        </div>
+        
+        <button class="email-button">
+          <i class="fas fa-envelope"></i>
+          <span>samadrehman550@gmail.com</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Feature Cards with Social Links -->
+    <div class="feature-cards">
+      <a href="https://github.com/samadrehman" target="_blank" class="feature-card">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" class="feature-card">
+        <i class="fas fa-code"></i>
+        <span>LeetCode</span>
+      </a>
+      <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" class="feature-card">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+    
+    <div class="feature-cards-row">
+      <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank" class="feature-card-small">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="game.html" target="_blank" class="feature-card-small">
+        <i class="fas fa-gamepad"></i>
+        <span>Game</span>
+      </a>
+      <a href="story.html" target="_blank" class="feature-card-small">
+        <i class="fas fa-book"></i>
+        <span>My Story</span>
+      </a>
     </div>
   </section>
 
-  <main class="main-content">
-    <div class="container">
-      <div class="content-grid">
-        <section class="left-section">
-          <div class="tech-stack fade-in-up delay-1">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="tech-grid">
-              <div class="tech-item">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-html5"></i>
-                <span>HTML / CSS / JavaScript / TypeScript</span>
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-brain"></i>
-                <span>Machine Learning (Enough for now )</span>
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Cybersecurity basics</span>
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-docker"></i>
-                <span>Git, GitHub</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="experience-section fade-in-up delay-2">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-list">
-              <div class="experience-item">
-                <div class="experience-header">
-                  <h3>Open Source Contributor</h3>
-                  <span class="experience-date">GitHub</span>
-                </div>
-                <p>Contributing to various open source projects.</p>
-              </div>
-              <div class="experience-item">
-                <div class="experience-header">
-                  <h3>Participant</h3>
-                  <span class="experience-date">Kaggle Competitions</span>
-                </div>
-                <p>Participating in data science and machine learning competitions.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="right-section">
-          <div class="certificates-section fade-in-up delay-2">
-            <h2 class="section-title">Certificates</h2>
-            <div class="certificates-grid">
-              <div class="certificate-card">
-                <div class="certificate-image">
-                  <img src="delhi.png" alt="IIT Delhi Certificate" />
-                </div>
-                <div class="certificate-info">
-                  <h3>IIT Delhi</h3>
-                  <p>Machine Learning in Finance (2025)</p>
-                </div>
-              </div>
-              <div class="certificate-card">
-                <div class="certificate-image">
-                  <img src="python.png" alt="Python Certificate" />
-                </div>
-                <div class="certificate-info">
-                  <h3>Python Certificate</h3>
-                  <p>Technology Developer (2025)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="newsletter-section fade-in-up delay-3">
-            <h2 class="section-title">Stay Updated</h2>
-            <form id="subscribeForm" class="subscribe-form">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" name="name" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="Your Email" required>
-              </div>
-              <button type="submit" class="btn-primary">Subscribe</button>
-              <button type="button" onclick="window.location.href='https://samadrehman.github.io/Newsletter-'" class="btn-secondary">
-                View Newsletters
-              </button>
-              <div class="msg" id="msg"></div>
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
-  </main>
-
+  <!-- Projects Section -->
   <section class="projects-section" id="projects">
-    <div class="container">
-      <h2 class="section-title">GitHub Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card fade-in-up">
-          <h3>Customer Segmentation Dashboard</h3>
-          <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
-          </div>
+    <div class="section-header">
+      <span class="section-label"></span>
+      <h2 class="section-title">PROJECTS</h2>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Customer Segmentation Dashboard</h3>
+        <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
         </div>
+      </div>
 
-        <div class="project-card fade-in-up">
-          <h3>AI Sentiment-Based Text Generator</h3>
-          <p>This project is built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
-          </div>
+      <div class="project-card">
+        <h3>AI Sentiment-Based Text Generator</h3>
+        <p>Built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
         </div>
+      </div>
 
-        <div class="project-card fade-in-up">
-          <h3>SEO Analysis Dashboard</h3>
-          <p>This project is built as part of the Remote ML Internship Assessment. It analyzes the SEO performance of websites and provides actionable insights.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
-          </div>
+      <div class="project-card">
+        <h3>SEO Analysis Dashboard</h3>
+        <p>Analyzes the SEO performance of websites and provides actionable insights for optimization and improved search rankings.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
         </div>
+      </div>
 
-        <div class="project-card fade-in-up">
-          <h3>Shopping  Website</h3>
-          <p>This project is built is a part of e commerce website for demo purposes.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/Example-website-/" target="_blank" class="btn-secondary">Live Demo</a>
-          </div>
+      <div class="project-card">
+        <h3>Shopping Website</h3>
+        <p>E-commerce website built for demo purposes showcasing modern web development practices and responsive design.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
+          <a href="https://samadrehman.github.io/Example-website-/" target="_blank" class="btn-secondary">Live Demo</a>
         </div>
+      </div>
 
-        <div class="project-card fade-in-up">
-          <h3>Demo Doctor website</h3>
-          <p>This project is built is a part of doctor clicnic website for demo purposes.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/Demo-Doctor-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/Demo-Doctor-website-/" target="_blank" class="btn-secondary">Live Demo</a>
-          </div>
+      <div class="project-card">
+        <h3>Web-Socket Server from Scratch</h3>
+        <p>Production-ready, feature-rich HTTP/WebSocket server built from scratch with Node.js demonstrating advanced server architecture.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/WebSocket-Server-from-Scratch" target="_blank" class="btn-primary">View Code</a>
         </div>
+      </div>
 
-        <div class="project-card fade-in-up">
-          <h3>Psychological Profession website</h3>
-          <p>This project is built is a part of Psychological profession people for demo purpose.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/-Psychology-Clinic-demo-website-" target="_blank" class="btn-primary">View Code</a>
-            <a href="https://samadrehman.github.io/-Psychology-Clinic-demo-website-/" target="_blank" class="btn-secondary">Live Demo</a>
-          </div>
+      <div class="project-card">
+        <h3>Load Balancer</h3>
+        <p>Production-ready TypeScript load balancer with health checks, rate limiting, failover handling, and real-time metrics.</p>
+        <div class="project-links">
+          <a href="https://github.com/samadrehman/Load-Balancer-" target="_blank" class="btn-primary">View Code</a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="project-card fade-in-up">
-          <h3>School Website</h3>
-          <p>This project is built is a part of School demo purpose.</p>
-          <div class="project-links">
-            <a href="https://samadrehman.github.io/School-demo-website-/" target="_blank" class="btn-secondary">Live Demo</a> 
-            <a href="https://github.com/samadrehman/School-demo-website-" target="_blank" class="btn-primary">View Code</a>
+  <!-- Certificates & Work Section -->
+  <section class="work-section" id="certificates">
+    <div class="section-header">
+      <span class="section-label"></span>
+    </div>
+    
+    <div class="work-grid">
+      <div class="work-card">
+        <h3 class="work-label">Work</h3>
+        <div class="experience-list">
+          <div class="experience-item">
+            <h4>Open Source Contributor</h4>
+            <p>Contributing to various open source projects on GitHub</p>
           </div>
-        </div>  
-          <div class="project-card fade-in-up">
-          <h3> Web-socket sever from Scratch  </h3>
-          <p>A production-ready, feature-rich HTTP/WebSocket server built from scratch with Node.js. This project demonstrates advanced server architecture, real-time communication, and modern web development practices..</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/WebSocket-Server-from-Scratch" target="_blank" class="btn-primary">View Code</a>
+          <div class="experience-item">
+            <h4>Kaggle Competitions</h4>
+            <p>Participating in data science and machine learning competitions</p>
+          </div>
+          <div class="experience-item">
+            <h4>Tech Stack</h4>
+            <p>Python • HTML/CSS/JS/TS • Machine Learning • Cybersecurity • Git/GitHub</p>
           </div>
         </div>
-        </div>  
-          <div class="project-card fade-in-up">
-          <h3>Load-Balancer </h3>
-          <p>Production-ready TypeScript load balancer with health checks, rate limiting, failover handling, JWT authentication, and real-time metrics for distributing traffic across backend servers.</p>
-          <div class="project-links">
-            <a href="https://github.com/samadrehman/Load-Balancer-" target="_blank" class="btn-primary">View Code</a>
+      </div>
+      
+      <div class="work-card">
+        <h3 class="work-label">Image</h3>
+        <div class="certificates-display">
+          <div class="certificate-item">
+            <img src="delhi.png" alt="IIT Delhi Certificate" />
+            <div class="cert-info">
+              <h4>IIT Delhi</h4>
+              <p>Machine Learning in Finance (2025)</p>
+            </div>
+          </div>
+          <div class="certificate-item">
+            <img src="python.png" alt="Python Certificate" />
+            <div class="cert-info">
+              <h4>Python Certificate</h4>
+              <p>Technology Developer (2025)</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-text">
-          <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
-        </div>
-        <div class="footer-social">
-          <a href="https://github.com/samadrehman" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank">
-            <i class="fas fa-code"></i>
-          </a>
-          <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/samad-03b784387/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </div>
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://github.com/samadrehman" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank"><i class="fas fa-code"></i></a>
+        <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/samad-rehman-03b784387/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="game.html" target="_blank"><i class="fas fa-gamepad"></i></a>
       </div>
     </div>
   </footer>
 
-
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const fadeElements = document.querySelectorAll('.fade-in-up');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  fadeElements.forEach(el => observer.observe(el));
-});
-
-</script>
-
-
-
   <script>
-        // Newsletter form submission
-    const SUBSCRIBE_URL = "https://script.google.com/macros/s/AKfycbxD0vmXOgERx4jJYiErBl2RrNYU7ao4S9Uc64X4ZxWcZgnFG1i2F1uNdsvrt5VzCQP_/exec";
+    // Smooth scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById("email").value.trim();
-      const messageEl = document.getElementById("msg");
-
-      if (!email) {
-        messageEl.textContent = "Please enter a valid email.";
-        messageEl.className = "msg error-message";
-        return;
-      }
-
-      const params = new URLSearchParams();
-      params.append("action", "subscribe");
-      params.append("email", email);
-
-      try {
-        const res = await fetch(SUBSCRIBE_URL, {
-          method: "POST",
-          body: params,
-        });
-
-        const text = await res.text();
-        if (text.includes("Success")) {
-          messageEl.textContent = "✅ Thank you for subscribing!";
-          messageEl.className = "msg success-message";
-          document.getElementById("subscribeForm").reset();
-        } else if (text.includes("Already subscribed")) {
-          messageEl.textContent = "⚠️ You are already subscribed.";
-          messageEl.className = "msg error-message";
-        } else {
-          messageEl.textContent = "❌ Subscription failed. Try again later.";
-          messageEl.className = "msg error-message";
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
-      } catch (err) {
-        console.error(err);
-        messageEl.textContent = "❌ Subscription failed. Try again later.";
-        messageEl.className = "msg error-message";
-      }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.project-card, .work-card, .feature-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      observer.observe(el);
+    });
+
+    // Active nav link
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
     });
   </script>
-
-  
 </body>
 </html>
