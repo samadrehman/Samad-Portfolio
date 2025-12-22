@@ -19,7 +19,6 @@ I love building real-world projects that are fast, colorful, and a bit playful �
 
 | Project | Description | Tech |
 |----------|--------------|------|
-| ✈️ **FLY GAME** | Real-time multiplayer 3D aircraft combat built with Three.js & Node.js | JS / WebSockets |
 | 📊 **Customer Segmentation Dashboard** | ML dashboard for analyzing uploaded data | Python / Flask / Chart.js |
 | 🤖 **AI Sentiment Text Generator** | Generates AI text aligned with detected sentiment | ML / NLP / Python |
 
@@ -30,18 +29,4 @@ I love building real-world projects that are fast, colorful, and a bit playful �
 - 🎓 **IIT Delhi** — Machine Learning in Finance (2025)  
 - 🐍 **Python Developer Certificate** — Technology Developer (2025)
 
----
-
-## ⚙️ Features
-
-| Feature | Description |
-|----------|--------------|
-| 🌙 **Dark Mode Toggle** | Instantly switch themes for readability |
-| 🌧️ **Rain & Lightning Effect** | Ctrl + M to trigger rain and lightning |
-| 🎆 **Fireworks Animation** | Ctrl + B to celebrate your success |
-| 🦇 **Animated Bats Header** | Halloween-themed flying bats |
-
----
-
-## 📁 Folder Structure
 
