@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5e6e8;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #2a2a2a;
+      margin-bottom: 20px;
+    }
+    
+    .test-item {
+      padding: 15px;
+      margin: 10px 0;
+      background: #f0f0f0;
+      border-radius: 8px;
+      border-left: 4px solid #4CAF50;
+    }
+    
+    .status {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    
+    .loading {
+      background: #FFC107;
+      color: #000;
+    }
+    
+    .success {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .error {
+      background: #f44336;
+      color: white;
+    }
+    
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    
+    button:hover {
+      background: #45a049;
+    }
+    
+    #results {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff3cd;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .metric {
+      padding: 10px;
+      margin: 5px 0;
+      background: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Website Diagnostic Tool</h1>
+    <p>This page will help identify what's causing your website to hang.</p>
+    
+    <div class="test-item">
+      <strong>Test 1: Basic HTML</strong>
+      <span class="status success">✓ Loaded</span>
+      <p>If you can see this, basic HTML works fine.</p>
+    </div>
+    
+    <div class="test-item">
+      <strong>Test 2: CSS</strong>
+      <span class="status success" id="css-status">Checking...</span>
+      <p>Styles are rendering correctly.</p>
+    </div>
+    
+    <div class="test-item">
+      <strong>Test 3: JavaScript</strong>
+      <span class="status loading" id="js-status">Checking...</span>
+      <p id="js-text">Testing JavaScript execution...</p>
+    </div>
+    
+    <div class="test-item">
+      <strong>Test 4: Performance</strong>
+      <span class="status loading" id="perf-status">Testing...</span>
+      <p id="perf-text">Click "Run Performance Test" below</p>
+    </div>
+    
+    <button onclick="runPerformanceTest()">🚀 Run Performance Test</button>
+    <button onclick="testImageLoading()">🖼️ Test Image Loading</button>
+    <button onclick="testExternalResources()">🌐 Test External Resources</button>
+    <button onclick="window.location.href='index.html'">↩️ Back to Original Site</button>
+    
+    <div id="results"></div>
+  </div>
+
+  <script>
+    // Test 3: JavaScript working
+    setTimeout(() => {
+      document.getElementById('js-status').className = 'status success';
+      document.getElementById('js-status').textContent = '✓ Working';
+      document.getElementById('js-text').textContent = 'JavaScript is executing properly.';
+    }, 100);
+    
+    // Performance test
+    function runPerformanceTest() {
+      const results = document.getElementById('results');
+      results.style.display = 'block';
+      results.innerHTML = '<h3>Performance Metrics:</h3>';
+      
+      // Test 1: Animation performance
+      const startAnim = performance.now();
+      const testDiv = document.createElement('div');
+      testDiv.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      document.body.appendChild(testDiv);
+      testDiv.style.transform = 'translateY(100px)';
+      const animTime = performance.now() - startAnim;
+      
+      results.innerHTML += `<div class="metric">Animation Test: ${animTime.toFixed(2)}ms</div>`;
+      
+      // Test 2: DOM manipulation
+      const startDOM = performance.now();
+      for(let i = 0; i < 100; i++) {
+        const el = document.createElement('div');
+        document.body.appendChild(el);
+        document.body.removeChild(el);
+      }
+      const domTime = performance.now() - startDOM;
+      
+      results.innerHTML += `<div class="metric">DOM Manipulation: ${domTime.toFixed(2)}ms</div>`;
+      
+      // Test 3: Memory
+      if (performance.memory) {
+        const memory = (performance.memory.usedJSHeapSize / 1048576).toFixed(2);
+        results.innerHTML += `<div class="metric">Memory Usage: ${memory} MB</div>`;
+      }
+      
+      // Test 4: Network timing
+      if (performance.timing) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        results.innerHTML += `<div class="metric">Page Load Time: ${loadTime}ms</div>`;
+      }
+      
+      document.getElementById('perf-status').className = 'status success';
+      document.getElementById('perf-status').textContent = '✓ Complete';
+      document.getElementById('perf-text').textContent = 'Performance test completed. Check results below.';
+    }
+    
+    // Test image loading
+    function testImageLoading() {
+      const results = document.getElementById('results');
+      results.style.display = 'block';
+      results.innerHTML = '<h3>Image Loading Test:</h3>';
+      
+      const images = [
+        'profilephoto.jpg',
+        'delhi.png',
+        'python.png',
+        'images/favicon.png'
+      ];
+      
+      images.forEach(src => {
+        const start = performance.now();
+        const img = new Image();
+        
+        img.onload = () => {
+          const time = (performance.now() - start).toFixed(2);
+          const size = `${(img.width * img.height / 1000).toFixed(0)}K pixels`;
+          results.innerHTML += `<div class="metric">✓ ${src}: ${time}ms (${size})</div>`;
+        };
+        
+        img.onerror = () => {
+          results.innerHTML += `<div class="metric" style="background:#ffebee">✗ ${src}: FAILED TO LOAD</div>`;
+        };
+        
+        img.src = src;
+      });
+    }
+    
+    // Test external resources
+    function testExternalResources() {
+      const results = document.getElementById('results');
+      results.style.display = 'block';
+      results.innerHTML = '<h3>External Resources Test:</h3>';
+      
+      const resources = [
+        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        'https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ'
+      ];
+      
+      resources.forEach(url => {
+        const start = performance.now();
+        fetch(url, { mode: 'no-cors' })
+          .then(() => {
+            const time = (performance.now() - start).toFixed(2);
+            results.innerHTML += `<div class="metric">✓ ${url.split('/')[2]}: ${time}ms</div>`;
+          })
+          .catch(err => {
+            results.innerHTML += `<div class="metric" style="background:#ffebee">✗ ${url.split('/')[2]}: ${err.message}</div>`;
+          });
+      });
+    }
+    
+    // Auto-run basic checks
+    window.addEventListener('load', () => {
+      console.log('Page loaded successfully');
+      console.log('Load time:', performance.timing.loadEventEnd - performance.timing.navigationStart, 'ms');
+    });
+  </script>
+</body>
+</html>

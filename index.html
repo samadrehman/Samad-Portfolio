@@ -40,8 +40,8 @@
   <!-- Navigation -->
   <nav class="luxury-nav">
     <a href="#home">Main</a>
-    <a href="#projects">Projects</a>
-    <a href="#certificates">Certificate</a>
+    <a href="Projects.html">Projects</a>
+    <a href="certificates.html">Certificate</a>
   </nav>
 
   <!-- Hero Section -->
@@ -97,118 +97,9 @@
         <i class="fas fa-gamepad"></i>
         <span>Game</span>
       </a>
-      <a href="story.html" target="_blank" class="feature-card-small">
-        <i class="fas fa-book"></i>
-        <span>My Story</span>
-      </a>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="projects-section" id="projects">
-    <div class="section-header">
-      <span class="section-label"></span>
-      <h2 class="section-title">PROJECTS</h2>
-    </div>
-    
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Customer Segmentation Dashboard</h3>
-        <p>A Machine Learning–powered web dashboard built with Flask, Python, and Chart.js that helps businesses analyze and segment their customers based on uploaded datasets.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/Customer-segmentation" target="_blank" class="btn-primary">View Code</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>AI Sentiment-Based Text Generator</h3>
-        <p>Built as part of the Remote ML Internship Assessment. It generates AI-written paragraphs aligned with the sentiment (positive, negative, neutral) of an input prompt.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/AI-Sentiment-Based-Text-Generator" target="_blank" class="btn-primary">View Code</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>SEO Analysis Dashboard</h3>
-        <p>Analyzes the SEO performance of websites and provides actionable insights for optimization and improved search rankings.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/SEO-analysis-dashboard" target="_blank" class="btn-primary">View Code</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Shopping Website</h3>
-        <p>E-commerce website built for demo purposes showcasing modern web development practices and responsive design.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/Example-website-" target="_blank" class="btn-primary">View Code</a>
-          <a href="https://samadrehman.github.io/Example-website-/" target="_blank" class="btn-secondary">Live Demo</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Web-Socket Server from Scratch</h3>
-        <p>Production-ready, feature-rich HTTP/WebSocket server built from scratch with Node.js demonstrating advanced server architecture.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/WebSocket-Server-from-Scratch" target="_blank" class="btn-primary">View Code</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Load Balancer</h3>
-        <p>Production-ready TypeScript load balancer with health checks, rate limiting, failover handling, and real-time metrics.</p>
-        <div class="project-links">
-          <a href="https://github.com/samadrehman/Load-Balancer-" target="_blank" class="btn-primary">View Code</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certificates & Work Section -->
-  <section class="work-section" id="certificates">
-    <div class="section-header">
-      <span class="section-label"></span>
-    </div>
-    
-    <div class="work-grid">
-      <div class="work-card">
-        <h3 class="work-label">Work</h3>
-        <div class="experience-list">
-          <div class="experience-item">
-            <h4>Open Source Contributor</h4>
-            <p>Contributing to various open source projects on GitHub</p>
-          </div>
-          <div class="experience-item">
-            <h4>Kaggle Competitions</h4>
-            <p>Participating in data science and machine learning competitions</p>
-          </div>
-          <div class="experience-item">
-            <h4>Tech Stack</h4>
-            <p>Python • HTML/CSS/JS/TS • Machine Learning • Cybersecurity • Git/GitHub</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="work-card">
-        <h3 class="work-label">Image</h3>
-        <div class="certificates-display">
-          <div class="certificate-item">
-            <img src="delhi.png" alt="IIT Delhi Certificate" />
-            <div class="cert-info">
-              <h4>IIT Delhi</h4>
-              <p>Machine Learning in Finance (2025)</p>
-            </div>
-          </div>
-          <div class="certificate-item">
-            <img src="python.png" alt="Python Certificate" />
-            <div class="cert-info">
-              <h4>Python Certificate</h4>
-              <p>Technology Developer (2025)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="luxury-footer">
@@ -223,50 +114,7 @@
       </div>
     </div>
   </footer>
+  <script src="script.js"></script>
 
-  <script>
-    // Smooth scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.project-card, .work-card, .feature-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      observer.observe(el);
-    });
-
-    // Active nav link
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('nav a');
-      
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
