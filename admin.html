@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Secure Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- Hidden Prank Screen -->
+    <div id="prank-screen" class="prank-hidden">
+        <div class="prank-content">
+            <div class="emoji">🫏</div>
+            <h1 class="prank-title">GOTCHA! 🎉</h1>
+            <p class="prank-message">You just got PRANKED!</p>
+            <p class="sub-message">Did you really think this was real? 😂</p>
+            <div class="donkey-text">🐴 DONKEY ALERT! 🐴</div>
+            <button class="try-again" onclick="location.reload()">Try Again? 😏</button>
+        </div>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        form {
+            border: none;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button[type=submit] {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            margin: 20px 0 15px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        button[type=submit]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button[type=submit]:active {
+            transform: translateY(0);
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        .container label {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            font-weight: 400 !important;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .remember-me input {
+            width: auto;
+            margin: 0 8px 0 0;
+        }
+
+        /* Prank Screen Styles */
+        .prank-hidden {
+            display: none;
+        }
+
+        #prank-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: prankFadeIn 0.5s ease-out;
+        }
+
+        @keyframes prankFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .prank-content {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            animation: shake 0.8s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+
+        .emoji {
+            font-size: 8rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .prank-title {
+            font-size: 4rem;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .prank-message {
+            font-size: 2rem;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .sub-message {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+
+        .donkey-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            animation: wiggle 1s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .try-again {
+            background: white;
+            color: #ee5a6f;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .try-again:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .prank-title {
+                font-size: 3rem;
+            }
+
+            .prank-message {
+                font-size: 1.5rem;
+            }
+
+            .donkey-text {
+                font-size: 1.8rem;
+            }
+
+            .emoji {
+                font-size: 5rem;
+            }
+        }
+    </style>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values (though we don't actually check them)
+            const username = document.getElementById('uname').value;
+            const password = document.getElementById('psw').value;
+            
+            // Hide login form
+            document.querySelector('.login-container').style.display = 'none';
+            
+            // Show prank screen
+            const prankScreen = document.getElementById('prank-screen');
+            prankScreen.classList.remove('prank-hidden');
+            prankScreen.style.display = 'flex';
+            
+            // Play a sound effect (optional - will only work if you have the file)
+            // var audio = new Audio('gotcha.mp3');
+            // audio.play();
+            
+            // Optional: Confetti effect
+            createConfetti();
+        });
+        
+        // Fun confetti effect
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#ffd93d', '#6bcf7f', '#4d96ff', '#ff9ff3'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-10px';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.zIndex = '10000';
+                    confetti.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    const fall = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 2000 + Math.random() * 1000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+                    
+                    fall.onfinish = () => confetti.remove();
+                }, i * 30);
+            }
+        }
+    </script>
+</body>
+</html>
