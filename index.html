@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samad ur Rehman | Luxury Portfolio</title>
+  <title>Samad ur Rehman — Portfolio</title>
   
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
   
-  <!-- Fonts -->
+  <!-- Elegant Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Meta Tags -->
-  <meta property="og:title" content="Samad ur Rehman | Luxury Portfolio" />
-  <meta property="og:description" content="Explore my projects, certificates, and experience in ML, Python, and Web Dev." />
-  <meta property="og:image" content="https://samadrehman.github.io/images/preview.jpg" />
-  <meta property="og:url" content="https://samadrehman.github.io/" />
-  <meta property="og:type" content="website" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
   
-  <link rel="canonical" href="https://samadrehman.github.io/" />
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <meta property="og:title" content="Samad ur Rehman — Portfolio" />
+  <meta property="og:description" content="ML Engineer & Web Developer crafting digital experiences in Bhopal, India." />
+  
   <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-STRPMP0TZQ"></script>
   <script>
@@ -36,85 +35,284 @@
     gtag('js', new Date());
     gtag('config', 'G-STRPMP0TZQ');
   </script>
+</head>
+
+<body>
+  <!-- Canvas Background -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Cursor Follower -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
   <!-- Navigation -->
   <nav class="luxury-nav">
-    <a href="#home">Main</a>
-    <a href="Projects.html">Projects</a>
-    <a href="certificates.html">Certificate</a>
+    <div class="nav-brand">
+      <span class="brand-initial">S</span>
+      <span class="brand-text">SAMAD</span>
+    </div>
+    <div class="nav-menu">
+      <a href="#home" class="nav-item active">Home</a>
+      <a href="Projects.html" class="nav-item">Projects</a>
+      <a href="certificates.html" class="nav-item">Certificates</a>
+    </div>
+  
   </nav>
 
   <!-- Hero Section -->
   <section class="hero-section" id="home">
-    <div class="hero-container">
-      <div class="profile-circle">
-        <div class="circle-image">
-          <span class="placeholder-text"></span>
-          <img src="profilephoto.jpg" alt="Samad ur Rehman"> 
+    <div class="hero-grid">
+      
+      <!-- Left Column - Text Content -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">Developer & Designer</span>
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="title-line">Samad Ur</span>
+          <span class="title-line">Rehman</span>
+        </h1>
+        
+        <div class="hero-subtitle">
+          <p>Crafting digital experiences that blend aesthetics with functionality</p>
+        </div>
+        
+        <div class="hero-description">
+          <p>Based in Bhopal, India. I build projects that solve real problems with a focus on design, speed, and exceptional user experience. Currently studying at Government Hamidia Arts & Commerce College.</p>
+        </div>
+        
+        <div class="hero-cta">
+          <button class="email-button">
+            <span class="btn-icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="btn-text">samadrehman550@gmail.com</span>
+            <span class="btn-hover-text">Copy Email</span>
+          </button>
+          
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Internship Month Exp</span>
+            </div>
+          </div>
         </div>
       </div>
       
-      <div class="hero-content">
-        <div class="text-box">
-          <h1 class="hero-title">Samad Ur Rehman</h1>
-          <p class="hero-description">
-            Student based in Bhopal, India.
-            I build projects that solve my own problems.
-            Focused on design, speed, and user experience.<br/>
-            College: Government Hamidia Arts & Commerce College.
-          </p>
+      <!-- Right Column - Profile Card with Flip -->
+      <div class="hero-visual">
+        <div class="profile-card-container">
+          <div class="profile-card" id="profileCard">
+            <!-- Front Side -->
+            <div class="card-front">
+              <div class="card-image">
+                <img src="profilephoto.jpg" alt="Samad ur Rehman">
+                <div class="image-overlay"></div>
+              </div>
+              <div class="card-label">
+                <span>Click to explore</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            
+            <!-- Back Side -->
+            <div class="card-back">
+              <div class="card-info">
+                <h3>About Me</h3>
+                <p>Machine Learning enthusiast and Full-Stack Developer passionate about creating innovative solutions.</p>
+                
+                <div class="info-items">
+                  <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bhopal, India</span>
+                  </div>
+                  <div class="info-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Govt. Hamidia College</span>
+                  </div>
+                  <div class="info-item">
+                    <i class="fas fa-code"></i>
+                    <span>Python, JS, ML</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-label">
+                <span>Click to return</span>
+                <i class="fas fa-arrow-left"></i>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Decorative Elements -->
+          <div class="profile-decoration deco-1"></div>
+          <div class="profile-decoration deco-2"></div>
+          <div class="profile-decoration deco-3"></div>
         </div>
-        
-        <button class="email-button">
-          <i class="fas fa-envelope"></i>
-          <span>samadrehman550@gmail.com</span>
-        </button>
       </div>
+      
+    </div>
+  </section>
+
+  <!-- Feature Cards Grid -->
+  <section class="features-section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Connect With Me</h2>
     </div>
     
-    <!-- Feature Cards with Social Links -->
     <div class="feature-cards">
-      <a href="https://github.com/samadrehman" target="_blank" class="feature-card">
-        <i class="fab fa-github"></i>
-        <span>GitHub</span>
+      <!-- GitHub Card -->
+      <a href="https://github.com/samadrehman" target="_blank" class="feature-card" data-tilt>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <h3 class="card-title">GitHub</h3>
+          <p class="card-desc">Explore my code repositories and open source contributions</p>
+          <span class="card-link">View Profile <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="card-gradient"></div>
       </a>
-      <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" class="feature-card">
-        <i class="fas fa-code"></i>
-        <span>LeetCode</span>
+
+      <!-- LeetCode Card -->
+      <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" class="feature-card" data-tilt>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="card-title">LeetCode</h3>
+          <p class="card-desc">Check out my problem-solving skills and coding challenges</p>
+          <span class="card-link">View Profile <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="card-gradient"></div>
       </a>
-      <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" class="feature-card">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
+
+      <!-- Instagram Card -->
+      <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" class="feature-card" data-tilt>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3 class="card-title">Instagram</h3>
+          <p class="card-desc">Follow my creative journey and daily inspirations</p>
+          <span class="card-link">Follow Me <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="card-gradient"></div>
       </a>
-    </div>
-    <div class="feature-cards">
-      <a href="game.html" target="_blank" class="feature-card-small">
-        <i class="fas fa-gamepad"></i>
-        <span>Game</span>
-      </a
-    <div class="feature-cards">
-      <a href="admin.html" target="_blank" class="feature-card-small">
-        <i class="fas fa-login"></i>
-        <span>Admin login</span>
+
+      <!-- Game Card -->
+      <a href="game.html" target="_blank" class="feature-card feature-card-small" data-tilt>
+        <div class="card-content">
+          <div class="card-icon-small">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3 class="card-title-small">Play Game</h3>
+        </div>
+        <div class="card-gradient"></div>
+      </a>
+
+      <!-- Admin Card -->
+      <a href="admin.html" target="_blank" class="feature-card feature-card-small" data-tilt>
+        <div class="card-content">
+          <div class="card-icon-small">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3 class="card-title-small">Admin Login</h3>
+        </div>
+        <div class="card-gradient"></div>
       </a>
     </div>
   </section>
 
+  <!-- Skills Showcase -->
+  <section class="skills-section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">What I Do</h2>
+    </div>
+    
+    <div class="skills-grid">
+      <div class="skill-card" data-skill="ml">
+        <div class="skill-number">01</div>
+        <div class="skill-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>Machine Learning</h3>
+        <p>Building intelligent systems with Python, TensorFlow, and scikit-learn to solve complex problems.</p>
+      </div>
 
+      <div class="skill-card" data-skill="web">
+        <div class="skill-number">02</div>
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Web Development</h3>
+        <p>Creating modern, responsive web applications with cutting-edge technologies and frameworks.</p>
+      </div>
+
+      <div class="skill-card" data-skill="design">
+        <div class="skill-number">03</div>
+        <div class="skill-icon">
+          <i class="fas fa-palette"></i>
+        </div>
+        <h3>UI/UX Design</h3>
+        <p>Crafting beautiful, intuitive interfaces that provide exceptional user experiences.</p>
+      </div>
+
+      <div class="skill-card" data-skill="backend">
+        <div class="skill-number">04</div>
+        <div class="skill-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3>Backend Systems</h3>
+        <p>Developing scalable architectures with advanced optimization and load balancing.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="luxury-footer">
     <div class="footer-content">
-      <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
+      <div class="footer-brand">
+        <h3>Samad ur Rehman</h3>
+        <p>Building the future, one line of code at a time.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="Projects.html">Projects</a>
+        <a href="certificates.html">Certificates</a>
+      </div>
+      
       <div class="footer-social">
-        <a href="https://github.com/samadrehman" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank"><i class="fas fa-code"></i></a>
-        <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="game.html" target="_blank"><i class="fas fa-gamepad"></i></a>
+        <a href="https://github.com/samadrehman" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" aria-label="LeetCode">
+          <i class="fas fa-code"></i>
+        </a>
+        <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="game.html" target="_blank" aria-label="Game">
+          <i class="fas fa-gamepad"></i>
+        </a>
       </div>
     </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
+      <p class="footer-credit">Designed with passion</p>
+    </div>
   </footer>
-  <script src="script.js"></script>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,71 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates — Samad ur Rehman</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <!-- Elegant Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-      <!-- Navigation -->
+  <!-- Canvas Background -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Cursor Follower -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Navigation -->
   <nav class="luxury-nav">
-    <a href="index.html">Main</a>
-    <a href="Projects.html">Projects</a>
-    <a href="certificates.html">Certificate</a>
-  </nav>
-     <!-- Certificates & Work Section -->
-  <section class="work-section" id="certificates">
-    <div class="section-header">
-      <span class="section-label"></span>
+    <div class="nav-brand">
+      <span class="brand-initial">S</span>
+      <span class="brand-text">SAMAD</span>
     </div>
-    
+    <div class="nav-menu">
+      <a href="index.html" class="nav-item">Home</a>
+      <a href="Projects.html" class="nav-item">Projects</a>
+      <a href="certificates.html" class="nav-item active">Certificates</a>
+    </div>
+  
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="hero-content-center">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Achievements</span>
+      </div>
+      <h1 class="page-title">Certificates & Experience</h1>
+      <p class="page-subtitle">My journey in technology and continuous learning</p>
+    </div>
+  </section>
+
+  <!-- Work & Certificates Section -->
+  <section class="work-section" id="certificates">
     <div class="work-grid">
-      <div class="work-card">
-        <h3 class="work-label">Work</h3>
+      
+      <!-- Work Experience Card -->
+      <div class="work-card" data-tilt>
+        <div class="work-card-header">
+          <h3 class="work-label">Experience & Skills</h3>
+          <div class="work-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+        </div>
+        
         <div class="experience-list">
           <div class="experience-item">
-            <h4>Open Source Contributor</h4>
-            <p>Contributing to various open source projects on GitHub</p>
+            <div class="exp-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="exp-content">
+              <h4>Open Source Contributor</h4>
+              <p>Contributing to various open source projects on GitHub</p>
+            </div>
           </div>
+
           <div class="experience-item">
-            <h4>Kaggle Competitions</h4>
-            <p>Participating in data science and machine learning competitions</p>
+            <div class="exp-icon">
+              <i class="fab fa-kaggle"></i>
+            </div>
+            <div class="exp-content">
+              <h4>Kaggle Competitions</h4>
+              <p>Participating in data science and machine learning competitions</p>
+            </div>
           </div>
+
           <div class="experience-item">
-            <h4>Tech Stack</h4>
-            <p>Python </p><br>
-            <p>HTML/CSS/JS/TS</p><br>
-            <p>Machine Learning</p><br>
-            <p>Cybersecurity</p><br>
-            <p>Git/GitHub</p><br>
+            <div class="exp-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="exp-content">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">HTML/CSS/JS/TS</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Cybersecurity</span>
+                <span class="tech-tag">Git/GitHub</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="work-card">
-        <h3 class="work-label">Image</h3>
+
+      <!-- Certificates Display Card -->
+      <div class="certificates-card" data-tilt>
+        <div class="work-card-header">
+          <h3 class="work-label">Certifications</h3>
+          <div class="work-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+        </div>
+        
         <div class="certificates-display">
+          <!-- Certificate 1 -->
           <div class="certificate-item">
-            <img src="delhi.png" alt="IIT Delhi Certificate" />
+            <div class="cert-image-wrapper">
+              <img src="delhi.png" alt="IIT Delhi Certificate" />
+              <div class="cert-overlay">
+                <i class="fas fa-search-plus"></i>
+              </div>
+            </div>
             <div class="cert-info">
               <h4>IIT Delhi</h4>
-              <p>Machine Learning in Finance (2025)</p>
+              <p>Machine Learning in Finance</p>
+              <span class="cert-year">2025</span>
             </div>
           </div>
+
+          <!-- Certificate 2 -->
           <div class="certificate-item">
-            <img src="python.png" alt="Python Certificate" />
+            <div class="cert-image-wrapper">
+              <img src="python.png" alt="Python Certificate" />
+              <div class="cert-overlay">
+                <i class="fas fa-search-plus"></i>
+              </div>
+            </div>
             <div class="cert-info">
               <h4>Python Certificate</h4>
-              <p>Technology Developer (2025)</p>
+              <p>Technology Developer</p>
+              <span class="cert-year">2025</span>
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Month Experience</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Technologies</div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Samad ur Rehman</h3>
+        <p>Building the future, one line of code at a time.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="Projects.html">Projects</a>
+        <a href="certificates.html">Certificates</a>
+      </div>
+      
+      <div class="footer-social">
+        <a href="https://github.com/samadrehman" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://leetcode.com/u/s_life_is_enjoy/" target="_blank" aria-label="LeetCode">
+          <i class="fas fa-code"></i>
+        </a>
+        <a href="https://www.instagram.com/s_life_is_enjoy/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="game.html" target="_blank" aria-label="Game">
+          <i class="fas fa-gamepad"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Samad ur Rehman. All rights reserved.</p>
+      <p class="footer-credit">Designed with passion</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
- 
